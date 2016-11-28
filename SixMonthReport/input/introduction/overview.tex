@@ -1,0 +1,30 @@
+\section{Overview}
+
+\begin{figure}[H] 
+	\centering \includegraphics[scale=0.31]{images/openscad.png}
+	\caption{OpenSCAD's logo}
+	\label{fig:openscadlogo}
+\end{figure}
+
+User Interface for Customizing Models in OpenSCAD is the project that I worked upon for my 6 month training. It is under the umbrella organization of BRL-CAD. OpenSCAD is a free and Open source software application for creating solid 3D CAD objects. It is a script only based modeller, with a specific description language. Parts cannot be selected or modified by mouse in the 3D view. An OpenSCAD script specifies geometric primitives and defines how they are modified and manipulated to render a 3D model. OpenSCAD is available for Windows, Linux and OS X. It does constructive solid geometry (CSG).
+
+OpenSCAD has in a way redefined how easy 3D modeling can be. But the Wikipedia article on OpenSCAD says that it is a non interactive modeler, but rather a 3D compiler based on a textual description language. Pay attention to the above line, it’s primarily what I’ll be talking about.
+
+Solid 3D modeling. That sounds like some serious business. But it’s just an awesome tool for making models pertaining to many uses (mostly 3D printing). And 3D printing as we can all agree upon is cool. 3D models can be created by anyone using OpenSCAD. OpenSCAD is as much for designers as it is for you and me. What else can most people agree upon apart from the fact that solid 3D modeling is cool? A graphical interface is simpler and more intuitive to use. There is a general aversion for typing commands in order to get things done. Simply put, more people have an inclination towards GUI.
+
+This is something that OpenSCAD lacked. But the benevolent folks at Thingiverse.com found a way to help out the demographic intersection of GUI lovers and OpenSCAD users. The website provides an easy to use interface to customize models of OpenSCAD. All one needs to do is upload the OpenSCAD file. After uploading the file, what you’ll see can only be described as being magic. I’m kidding, it’s just very useful is all. The OpenSCAD’s script is used to make a form containing slide bars, text boxes, combo boxes, labels, etc all for the singular purpose of customizing models.
+
+My project was to include similar functionality into OpenSCAD itself. Constantly having to upload files created in one software (OpenSCAD) to a website in order to customize your models can get a little problematic as one is uploading scripts without being able to confirm how the script will translate into a form on the site. Wouldn’t it be great if everything is at one place, the original place: OpenSCAD? Of course, it would.
+
+My project intends to define a user interface to customize models interactively instead of having to modify them manually. It will enable the user to create the templates for a given model which can further be changed as per user’s requirements.
+
+This project will allow the modelers to create generic models (templates) which others can then customize to cater to their own use.
+
+This project is based on the User interface of OpenSCAD Software. The main idea of this project is to provide users with features to change certain variables or parameters in .scad file using form like interface which may include slide bar, check box, text box, ranges etc. so that we can visualize the changes in output on the basis of input side by side instead of manually changing different parameters. It will help the user able to create the templates for given model which can further be changed as per user's requirements. 
+
+The core part of this project is implemented using C++, flex and bison and for GUI part Qt is used. Apart for that Make, qmake and cmake are used for making project and test cases.
+Testing is done using the travis and ctest. Github is used to manage code and IRC to communicate with the mentors.
+  
+My training being not based on particular language or technology, different type of open-source softwares and technologies are 
+used in this project and many during my training which are not used in this 
+project like android, ejabberd (server bassed on erlang and XMPP protcol) for\emph{ sunehaG} and GRASS GIS, python, shell scripting for \emph{The Road Project}.

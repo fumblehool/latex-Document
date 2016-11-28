@@ -1,0 +1,18 @@
+\section{Flex}
+
+Flex (fast lexical analyzer generator) is a free and open-source software alternative to lex. It is a computer program that generates lexical analyzers (also known as "scanners" or "lexers"). It is frequently used as the lex implementation together with Berkeley Yacc parser generator on BSD-derived operating systems (as both lex and yacc are part of POSIX), or together with GNU bison (a version of yacc) in *BSD ports and in GNU/Linux distributions. Unlike Bison, flex is not part of the GNU Project and is not released under the GNU Public License.
+
+Flex was written in C by Vern Paxson around 1987. He was translating a Ratfor generator, which had been led by Jef Poskanzer
+
+Input to Lex is divided into three sections with \%\% dividing the sections. Flex .l specification file:
+\begin{verbatim}
+	/*** Definition section ***/
+	
+	%%
+	
+	/*** Rules section ***/
+	
+	%%
+	
+	/*** C Code section ***/
+\end{verbatim}

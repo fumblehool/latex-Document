@@ -1,0 +1,116 @@
+\documentclass[12pt]{report}
+\usepackage[print,nopanel]{pdfscreen}
+%\begin{print}
+\usepackage{lipsum}% http://ctan.org/pkg/lipsum
+\usepackage{titletoc}% http://ctan.org/pkg/titletoc
+%\section{type}
+%\usepackage{sagetex}
+
+\usepackage{listings}
+
+\usepackage{lastpage}
+\usepackage{macro/macro}
+\usepackage{float}
+\usepackage{fancyhdr}
+\usepackage{verbatim}
+\usepackage[Glenn]{fncychap}
+\lhead{\bfseries OpenSCAD's Customizer}
+\usepackage[left=2.5cm, right=1.5cm, top=1.5cm, bottom=1.5cm]{geometry}
+\pagestyle{fancy}
+%\end{print}
+\margins{2.5cm}{1.5cm}{1.5cm}{1.5cm}
+\begin{screen}
+
+\renewcommand{\encodingdefault}{T1}
+\usepackage{setspace}
+\linespread{1.5}
+\renewcommand{\rmdefault}{ptm}
+\end{screen}
+\screensize{8cm}{9cm}
+\overlay{overlay8.pdf}
+\usepackage{graphicx}
+
+\begin{document}
+\input{input/titlepage.tex}
+\begin{screen}
+\ppttitle
+\end{screen}
+\footskip 0.7cm
+\thispagestyle{empty} 
+\pagetitle
+\newpage
+\pagenumbering{Roman}
+\cfoot{\thepage}
+
+\input{input/abstract.tex}
+\newpage
+\input{input/acknowledgement.tex}
+
+\newpage
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+\listoftables
+\newpage
+
+
+\pagenumbering{arabic}
+\cfoot{\thepage}
+
+\newpage
+\chapter{INTRODUCTION OF ORGANIZATION}
+\input{input/introduction/company.tex}
+\newpage
+
+
+\chapter{Introduction To Project}
+\input{input/introduction/overview.tex}
+\input{input/introduction/ExistingSystem.tex}
+\input{input/introduction/UserRequirementAnalysis.tex}
+\input{input/introduction/FeasibilityStudy.tex}
+\input{input/introduction/objective.tex}
+
+
+\chapter{PROJECT DESIGN}
+
+% 1Product perspective
+%[2] Product functions
+%[3] User characteristics
+%[4] Constraints
+%[5] Use Case Model/Flow Chart/DFDS
+%[6] Specific Requirements
+
+\input{input/ProjectDesign/graphs.tex}
+\input{input/ProjectDesign/dependencies.tex}
+
+
+\newpage
+\chapter{DEVELOPMENT AND IMPLEMENTATION}
+\input{input/Development/c++.tex}
+\input{input/Development/flex.tex}
+\input {input/Development/bison.tex}
+\input{input/Development/json.tex}
+\input{input/Development/qt.tex}
+%\input{input/Development/make.tex}
+%\input{input/Development/ctest.tex}
+%\input{input/Development/travis.tex}
+\input{input/Development/latex.tex}
+\input {input/Development/doxygen.tex}
+\input{input/Development/git.tex}
+\input{input/Development/implementation.tex}
+\section{Testing}
+%%\input{input/tech/test.tex}
+
+\chapter{CONCLUSION AND FUTURE SCOPE}
+%\input{input/con/conclusion.tex}
+%\input{input/con/future.tex}
+
+\chapter{REFERENCES}
+\input{input/bibliography.tex}
+
+\appendix
+\chapter{Implementation Example}
+\input{input/Example.tex}
+\end{document}
+
