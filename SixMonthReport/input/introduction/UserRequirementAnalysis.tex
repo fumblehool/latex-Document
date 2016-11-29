@@ -1,114 +1,80 @@
 \section{User Requirement Analysis} 
-
-For User Requirement Analysis, users of this system have been asked about 
-possible requirements that this software should have and we got following
-resultant list of outputs-:
-\begin{enumerate}
-\item Generates the final output in the form of pdf
-\item Provide on-line way to analysis so that individual does not have to 
-install anything.
-\item Send PDF to the user in the form of email
-\item Make it work like batch mode. so, that user can give inputs 
-together and relax.
-\item Accept inputs from the user in *.csv file format
-\item Help M.Tech and Civil Engineer to analysis structure.
-\item Automate calculation of modal force and modes.
-\item Reduce the time for analysis.
-\end{enumerate}
-
-\section{Software Requirement Analysis}
-
-A Software Requirements Analysis for a software system is a complete 
-description of the behavior of a system to be developed. It include functional Requirements
-and Software Requirements. In addition to these, the SRS also contains 
-non-functional requirements. Non-functional requirements are 
+User Requirements Analysis for a software system is a complete description of a the system that is needed to be developed. It include functional Requirements
+and Non-functional Requirements. Non-functional requirements are 
 requirements which impose constraints on the design or implementation.
-\begin{itemize}
-	\item{\bf Purpose}: Dynamic of structure is a web based software and the 
-	main purpose of this project is to:
+
+
+{\bf Users of the System:}
 	\begin{enumerate}
-		\item Perform most of difficult Calculation work.
-		\item Make it work like batch mode. so, that user can give inputs 
-		together and relax.
-		\item Help M.Tech and Civil Engineer to analysis structure.
-		\item Automatic calculation of modal force and modes.
-		\item Reduce the time for analysis.
-		\item Provide on-line way to analysis so that individual does not have to 
-		install anything.
+		\item Modeller: Modeller's are the people how code to create model their for their own use or for comercial use.
+		\item Client: These are the people which will customzie model to their need made by modellers before ordering or printing model themselves. 
+		\item Softwares: Clients are the web Apps or any other software that uses OpenSCAD as this Backend
+		 		
 	\end{enumerate}
-	
-	\item{\bf Users of the System}
-	\begin{enumerate} 
-		\item Client : Clients are the end users that benefit from this software.
-		They just provide input and gets output in form of PDF.Client of this 
-		WEB Application can be of two types -:
-		\begin{enumerate}
-			\item Civil Engineer -: They have knowledge of working of procedure
-			and what input is being provided.
-			\item Layman -: They don't know anything about what's going on, their just 
-			work is to give input to system.   
-			
-		\end{enumerate}
-	\end{enumerate}
-\end{itemize}
 
 \subsection{Functional Requirements}
 \begin{itemize}
-	\item {\bf Specific Requirements}: This phase covers the whole requirements 
-	for the system. After understanding the system we need the input data 
-	to the system then we watch the output and determine whether the output 
-	from the system is according to our requirements or not. So what we have 
-	to input and then what we’ll get as output is given in this phase. This 
-	phase also describe the software and non-function requirements of the 
-	system.
-	\item {\bf Input Requirements of the System}
+	\item {\bf Syntax to generate widget to modify parameter}: This means we need to provide a syntax which could be used to generate different widget for different type of pararmeters.
+	The widgets that we entend to support are: 
 	\begin{enumerate} 
-		\item Type of soil
-		\item Number of storeys
-		\item Importance Factor
-		\item Response Reduction Factor
-		\item Zone Factor
-		\item Input method (CSV or manual)
-		\item Output method (Email or direct PDF)
-		\item Mass of each storey
-		\item Height of each storey
-		\item Stiffness of each storey
-		\item Input in form of csv file
+		\item Spinbox:
+			\begin{enumerate}
+				\item With Increment Size
+				\item without Increment Size 
+			\end{enumerate} 
+		\item Checkbox 
+		\item Slider
+			\begin{enumerate}
+				\item with Increment Size
+				\item With Default Increment Size
+			\end{enumerate}
+		\item Textbox
+		\item Special vector 
+		\item Combo Box
+			\begin{enumerate}
+				\item Simple
+				\item Labeled 
+			\end{enumerate}
+	
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{ |c|c|c|c|c|c| }
+			\hline
+			& \multicolumn{5}{|c|}{Type of Widgets} \\
+			\hline
+			Type of Data&	Number&	String&	BOOL &Vector &Range	 \\ [0.5ex]
+			\hline 
+			SpinBox&Y&	-&	-&	-&	- \\ \hline
+			ComboBox&	Y&	Y&	-&	-&	- \\ \hline
+			Text&	Y&	Y&	-&	O&	- \\ \hline
+			Slider&	Y&	-&	-&	-&	- \\ \hline
+			Checkbox&	-&	-&	Y&	-&	- \\ [1ex]
+			\hline
+		\end{tabular}
+		\caption{Table to show the support for widgets for different DataType}
+		\label{table2}
+	\end{table}
+	
 	\end{enumerate}
-	\vskip 0.5cm
-	\item {\bf Output Requirements of the System}
-	\begin{enumerate} 
-		\item Calculation of modal force and modes.
-		\item Generation of output in form of PDF.
-		\item Mailing output PDF 
-	\end{enumerate}
-	\vskip 0.5cm
-	\item {\bf Special User Requirements}
-	\begin{enumerate} 
-		\item Automatic Email Generation of Output and Sending to the concerned person.
-		\item Taking bulk input values in form of CSV file
-	\end{enumerate}
-	\vskip 0.5cm
-	\item {\bf Software Requirements}
-	\begin{enumerate} 
-		\item Programming language: Python 2.7
-		\item software: SAGEMATH, \LaTeX{}
-		\item Framework: Django 1.7, Bootstrap
-		\item Web Languages: Html, Java Script, CSS
-		\item Database: Sqlite 
-		\item Documentation: Doxygen 1.8.3
-		\item Text Editor: Vim
-		\item Operating System: Ubuntu 12.04 or up
-		\item Revision System: Git
-		
-	\end{enumerate}
-	\vskip 0.5cm
+	\item {\bf Syntax to Describe parameter}: 
+		This means we need to provide a syntax which could be used to provide description for the parameter.
+	\item \textbf{Syntax to Group Parameter}:
+		This means we need to provide a syntax which could be used to group the parameters into different groups or tab to easily manage Customizer and make customizer interface little simple.
+	\item \textbf{Syntax to Hide parameters}
+		This means we need to provide a syntax which could be used to Hide certain parameters.
+	\item \textbf{Syntax to make certain parameters Global}
+		This means we need to provide a syntax which could be used to make certain parameters gloabal i.e. they are present in each and every group.
+	\item \textbf{Save the set of parameters in JSON file}:
+	This feature which is unique to openSCAD give user the ability to save the value of the parameter and also we can apply them through the cmd-line and get the output.
+	
+	\item \textbf{Provide GUI to add Set of Parameters}
+		This means we need to provide a way to store different set of parameters which represent different models from generic model.
+	
 	\subsection{Non functional requirements}
 	\begin{enumerate} 
-		\item Scalability: System should be able to handle a number of users. 
-		For e.g., handling around thousand users at the same time.
+		\item Extensible: It should be able to supports future functional requirements
 		\item Usability: Simple user interfaces that a layman can understand.
-		\item Speed: Processing input should be done in reasonable time
-		i.e. we can say maximum 24 hrs.
+		\item Modular Structure: The software should have  structure. So, that differenet parts of software would be changed without effecting other parts.
+		 
 	\end{enumerate}
 \end{itemize}
