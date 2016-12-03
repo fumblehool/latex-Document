@@ -1,5 +1,5 @@
 \section{User Requirement Analysis} 
-User Requirements Analysis for a software system is a complete description of a the system that is needed to be developed. It include functional Requirements
+User Requirements Analysis for a software system is a complete description of a the requirements of the User. It include functional Requirements
 and Non-functional Requirements. Non-functional requirements are 
 requirements which impose constraints on the design or implementation.
 
@@ -8,13 +8,13 @@ requirements which impose constraints on the design or implementation.
 	\begin{enumerate}
 		\item Modeller: Modeller's are the people how code to create model their for their own use or for comercial use.
 		\item Client: These are the people which will customzie model to their need made by modellers before ordering or printing model themselves. 
-		\item Other Softwares: Many web Apps or other software uses OpenSCAD as this Backend might need to interact with customizer.
+		\item Other Softwares: Many web Apps or other software using OpenSCAD as there Backend might need to interact with customizer.
 		 		
 	\end{enumerate}
 
 \subsection{Functional Requirements}
 \begin{itemize}
-	\item {\bf Syntax to generate widget to modify parameter}: This means we need to provide a syntax which could be used to generate different widget for different type of pararmeters.
+	\item {\bf Syntax to generate widget to modify parameter}: This means there should be a syntax which could be used to generate different widget for different type of pararmeters.
 	The widgets that we entend to support are: 
 	\begin{enumerate} 
 		\item Spinbox:
@@ -51,30 +51,30 @@ requirements which impose constraints on the design or implementation.
 			Checkbox&	-&	-&	Y&	-&	- \\ [1ex]
 			\hline
 		\end{tabular}
-		\caption{Table to show the support for widgets for different DataType}
+		\caption{Table to show the required support of widgets for different DataType}
 		\label{table2}
 	\end{table}
 	
 	\end{enumerate}
 	\item {\bf Syntax to Describe parameter}: 
-		This means we need to provide a syntax which could be used to provide description for the parameter.
+		This means there should be a syntax which could be used to provide description for the parameter.
 	\item \textbf{Syntax to Group Parameter}:
-		This means we need to provide a syntax which could be used to group the parameters into different groups or tab to easily manage Customizer and make customizer interface little simple.
+		This means there should be a syntax which could be used to group the parameters into different groups or tab to easily manage Customizer and make customizer interface little simple.
 	\item \textbf{Syntax to Hide parameters}
-		This means we need to provide a syntax which could be used to Hide certain parameters.
+		This means there should be a syntax which could be used to Hide certain parameters.
 	\item \textbf{Syntax to make certain parameters Global}
-		This means we need to provide a syntax which could be used to make certain parameters gloabal i.e. they are present in each and every group.
+		This means there should be a syntax which could be used to make certain parameters gloabal i.e. they are present in each and every group.
 	\item \textbf{Save the set of parameters in JSON file}:
-	This feature which is unique to openSCAD give user the ability to save the value of the parameter and also we can apply them through the cmd-line and get the output.
+	This feature means there should be a way a way that give user the ability to save the value of the parameter and also we can apply them through the cmd-line and get the output.
 	
 	\item \textbf{Provide GUI to add Set of Parameters}
-		This means we need to provide a way to store different set of parameters which represent different models from generic model.
-	
-	\subsection{Non functional requirements}
-	\begin{enumerate} 
-		\item Extensible: It should be able to supports future functional requirements
-		\item Usability: Simple user interfaces that a layman can understand.
-		\item Modular Structure: The software should have  structure. So, that differenet parts of software would be changed without effecting other parts.
-		 
-	\end{enumerate}
-\end{itemize}
+		This means there should be a way to store different set of parameters which represent different models from generic model.
+	\end{itemize}
+\subsection{Non functional requirements}
+\begin{enumerate} 
+	\item Extensible: It should be able to supports future functional requirements
+	\item Usability: Simple user interfaces that a layman can understand.
+	\item Modular Structure: The software should have  structure. So, that differenet parts of software would be changed without effecting other parts.
+ 
+\end{enumerate}
+
