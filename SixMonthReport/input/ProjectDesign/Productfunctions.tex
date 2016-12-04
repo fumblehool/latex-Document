@@ -1,0 +1,101 @@
+\section{product functions}
+
+Functions performed by Customizer are:
+\begin{itemize}
+    \item {\bf Provides Syntax to generate a widget to modify parameter}: This means there is a syntax which could be used to generate a different widget for a different type of parameters.
+    The widgets that we intend to support are:
+    \begin{enumerate}
+        \item Spinbox:
+        \begin{enumerate}
+            \item With Increment Size
+            \item without Increment Size
+        \end{enumerate}
+        \item Checkbox
+        \item Slider
+        \begin{enumerate}
+            \item with Increment Size
+            \item With Default Increment Size
+        \end{enumerate}
+        \item Textbox
+        \item Special vector
+        \item Combo Box
+        \begin{enumerate}
+            \item Simple
+            \item Labeled
+        \end{enumerate}
+       
+        \begin{table}[h]
+            \centering
+            \begin{tabular}{ |c|c|c|c|c|c| }
+                \hline
+                & \multicolumn{5}{|c|}{Type of Widgets} \\
+                \hline
+                Type of Data&    Number&    String&    BOOL &Vector &Range     \\ [0.5ex]
+                \hline
+                SpinBox&Y&    -&    -&    -&    - \\ \hline
+                ComboBox&    Y&    Y&    -&    -&    - \\ \hline
+                Text&    Y&    Y&    -&    Y&    - \\ \hline
+                Slider&    Y&    -&    -&    -&    - \\ \hline
+                VectorWidget&    -&    -&    -&    Y&- \\ \hline
+                Checkbox&    -&    -&    Y&    -&    - \\ [1ex]
+                \hline
+            \end{tabular}
+            \caption{Table to show the support of widgets for different DataType}
+            \label{table2}
+        \end{table}
+       
+    \end{enumerate}
+   
+    \item \textbf{Provide Syntax for attribute of parameter widget to be created:}
+    Customer also provide syntax to provide additional attribute of the parameter
+   
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{ |c|c|c|c|c|c|c| }
+            \hline
+            & \multicolumn{6}{|c|}{Type of Widgets} \\
+            \hline
+            &Max&    Min &    List of items&    Step size&    Label List     &Default     \\ [0.5ex]
+            \hline
+            SpinBox& -&    -&    -&    Y&     -& Y \\ \hline
+            ComboBox&    -&    -&    Y&    -&    Y&Y \\ \hline
+            Text&    -&    -&    -&    -&    -&Y \\ \hline
+            Slider&    Y&    Y&    -&    Y&    -&Y \\ \hline
+            Vector&    -&    -&    -&    -&    -&Y \\ \hline
+            Checkbox&    -&    -&    -&    -&    -&Y \\ [1ex]
+            \hline
+        \end{tabular}
+        \caption{Table to show the support of attributes  for different widgets}
+        \label{table2}
+    \end{table}
+   
+    \item {\bf Provides Syntax to Describe parameter}:
+    This means there is a syntax which could be used to provide a description for the parameter.
+   
+    \item \textbf{Provides Syntax to Group Parameter}:
+    This means there is a syntax which could be used to group the parameters into different groups or tab to easily manage Customizer and make customizer interface little simple.
+   
+    \item \textbf{Provides Syntax to Hide parameters}
+    This means there is a syntax which could be used to Hiding certain parameters.
+   
+    \item \textbf{Provides Syntax to make certain parameters Global}
+    This means there is a syntax which could be used to make certain parameters global i.e. they are present in each and every group.
+
+    \item \textbf{Provides option to reset parameters:}
+    All parameters in customizer could be reset to default value just by the click of a button.
+
+    \item \textbf{Provides option to Hiding description:}
+    Description of all the parameters in customizer could be Hidden value just by the click of a button.
+   
+    \item \textbf{Provides Save the set of parameters in JSON file}:
+    This feature provides a way that gives user the ability to save the value of the parameter and also we can apply them through the cmd-line and get the output.
+   
+    \item \textbf{Provides GUI to add Set of Parameters}
+    This means there is a way to store a different set of parameters which represent different models from generic model.
+   
+    \item \textbf{Provides Cmd-line support to apply Set of Parameters:}
+    This means that values of the parameter for given set can be applied to model using the cmd-line argument.
+   
+     
+\end{itemize}
+
