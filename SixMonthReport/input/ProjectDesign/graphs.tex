@@ -2,35 +2,35 @@
 A Dependency Graph is a graphical representation of the which module is dependent on which other modules. A Dependency Graph is often used as a preliminary step to creating an overview of the system. Dependency Graph also gives overview of how good is the design of the system.
 OpenSCAD being were huge software it would be difficult to make the dependency graph of whole software. So, here is  Dependency Graph of Customizer is as following-:
 \begin{enumerate}
-\item Dependency graph of Comment.h \ref{fig:comment1}
-\item Caller graph of Comment.h \ref{fig:comment}
-\item Caller graph of ParameterWidget.cc \ref{fig:dependency}
+\item \textbf{Dependency graph of Comment.h:} Figure \ref{fig:comment1} shows the modules on which the comment.h module is dependent.
+\item \textbf{Caller graph of Comment.h:} Figure \ref{fig:comment} shows the modules that use the module comment.h.
+\item \textbf{Caller graph of ParameterWidget.cc:} Figure \ref{fig:dependency} show the modules that uses the module ParameterWidget.h.
 \end{enumerate}
 
-\begin{figure}[H]
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth,height=1.37\columnwidth]{images/dependene}
+	\caption{ Dependency graph of Comment.h}
+	\label{fig:dependency}
+\end{figure}
+
+\begin{figure}
 \centering
 \includegraphics[width=0.25\linewidth,height=1.37\columnwidth]{images/comment}
-\caption{Caller graph of Comment.h }
+\caption{Caller graph of Comment.h}
 \label{fig:comment}
 \end{figure}
-\begin{figure}[H]
+\begin{figure}
 \centering
 \includegraphics[width=\linewidth,height=1.35\columnwidth]{images/comment1}
 \caption{Caller graph of ParameterWidget.cc}
 \label{fig:comment1}
 \end{figure}
 
-\begin{figure}
-\centering
-\includegraphics[width=0.7\linewidth,height=1.37\columnwidth]{images/dependene}
-\caption{ Dependency graph of Comment.h}
-\label{fig:dependency}
-\end{figure}
-
 
 \section{Flowchart}
 A flowchart is a type of diagram that represents an algorithm, work flow or process, showing the steps as boxes of various kinds, and their order by connecting them with arrows
-and the following is the flowchart of customizer showing the flow of control and Data in the software-:
+and the flowchart \ref{fig:FD1} of customizer showing the flow of control and Data in the software.
 
 \begin{figure}
     \centering \includegraphics[scale=0.65]{images/flowchart.png}
@@ -63,6 +63,13 @@ The basic implementation of this project is almost done in form of prototype. Th
 \end{enumerate}
 
 \section{Class Diagrams}
+Class Diagrams describe the static structure of the system. Following classes diagram represent the relationship between different classes in OpenSCAD and customizer:
+\begin{enumerate}
+	\item Figure \ref{fig:collaborative1} shows the class diagram of the ParameterWidgetVirtual class which is the basse class of all the Widget classes i.e ParameterCheckbox, ParameterVector,ParmeterSpinbox, ParameterComboBox,ParameterSlider, ParameterText.
+	\item Figure \ref{fig:collaborative} shows the class diagram of the ParameterWidget class which is the main class for whole the Customizer GUI and also show how this class is related to various classes in custmoizer.
+	
+	\item Figure \ref{fig:classAnnotation__coll__graph}  shows the class diagram of the Annotation class which is the main node of the AST that support the customizer feature and also show how this class is related to various classes in the customizer.
+\end{enumerate}
 \begin{figure}
     \centering
     \includegraphics[width=0.5\linewidth,,height=1.38\columnwidth]{images/collaborative1}

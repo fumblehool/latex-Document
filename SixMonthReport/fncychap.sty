@@ -466,7 +466,7 @@
     \vskip -1\pyy
     \rule{2\RW}{\myhi}\mghrulefill{\RW}\hskip 2pt
     \raggedleft\CTV\FmTi{#1}\par\nobreak
-    \vskip 80\p@}
+    \vskip 20\p@}
 
 \newlength{\backskip}
   \renewcommand{\DOTIS}[1]{%
@@ -493,7 +493,7 @@
     \vskip -1\backskip
     \rule{2\RW}{\myhi}\mghrulefill{\RW}\hskip 3pt %
     \raggedleft\CTV\FmTi{#1}\par\nobreak
-    \vskip 40\p@}
+    \vskip -20\p@}
  }
 
 %%%%%%% CONNY DEF
@@ -555,7 +555,7 @@
     \addtolength{\mylen}{-2\RW}
     {\vrule width\RW}\parbox{\mylen}{\CTV\FmTi{#1}}{\vrule width\RW}\par\nobreak%
     \vskip -3pt\rule{\RW}{2\baselineskip}\mghrulefill{\RW}\rule{\RW}{2\baselineskip}%
-    \vskip 60\p@% Added -2pt in vskip to correct for streched text v1.31
+    \vskip 10\p@% Added -2pt in vskip to correct for streched text v1.31
     }
   \renewcommand{\DOTIS}[1]{%
     \setlength{\py}{\fboxrule}
@@ -564,7 +564,7 @@
     \addtolength{\mylen}{-2\RW}
     \fbox{\parbox{\mylen}{\vskip 2\baselineskip\CTV\FmTi{#1}\par\nobreak\vskip \baselineskip}} 
     \setlength{\fboxrule}{\py}
-    \vskip 60\p@
+    \vskip 10\p@
     }
   }
 
@@ -650,7 +650,7 @@
   \RequirePackage{color} 
 \fi
 \def\@makechapterhead#1{%
-  \vspace*{50\p@}%
+  \vspace*{-60\p@}%
   {\parindent \z@ \raggedright \normalfont
     \ifnum \c@secnumdepth >\m@ne
       \if@mainmatter%%%%% Fix for frontmatter, mainmatter, and backmatter 040920
@@ -688,7 +688,7 @@
 %%% End: To avoid problem with scrbook.cls (fncychap version 1.32)
 
 \def\@makeschapterhead#1{%
-  \vspace*{50\p@}%
+  \vspace*{-55\p@}%
   {\parindent \z@ \raggedright
     \normalfont
     \interlinepenalty\@M
@@ -697,5 +697,6 @@
   }}
 
 \endinput
+
 
 
