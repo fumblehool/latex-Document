@@ -12,6 +12,6 @@ It will produce a pdf file named "report.pdf" in the current directory. Open tha
 
 Run below commands to get pdf
 -----------------------------
-  pdflatex report.tex
-  bibtex report.aux
-  pdflatex report.tex 
+  1) pdflatex report.tex
+  2) bibtex report.aux
+  3) pdflatex report.tex 
