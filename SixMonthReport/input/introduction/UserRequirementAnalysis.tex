@@ -29,7 +29,7 @@ requirements which impose constraints on the design or implementation.
                 \item With Default Increment Size
             \end{enumerate}
         \item Textbox
-        \item Special vector
+        \item VectorWidget
         \item Combo Box
             \begin{enumerate}
                 \item Simple
@@ -49,6 +49,7 @@ requirements which impose constraints on the design or implementation.
             ComboBox&    Y&    Y&    -&    -&    - \\ \hline
             Text&    Y&    Y&    -&    O&    - \\ \hline
             Slider&    Y&    -&    -&    -&    - \\ \hline
+            VectorWidget&    -&    -&    -&    Y&    - \\ \hline
             Checkbox&    -&    -&    Y&    -&    - \\ [1ex]
             \hline
         \end{tabular}
@@ -56,25 +57,29 @@ requirements which impose constraints on the design or implementation.
     \end{table}
    
     \end{enumerate}
-    \item {\bf Syntax to Describe parameter}:
+    \item {\bf Syntax to Describe parameter}
         This means there should be a syntax which could be used to provide a description for the parameter.
-    \item \textbf{Syntax to Group Parameter}:
+    \item \textbf{Syntax to Group Parameter}
         This means there should be a syntax which could be used to group the parameters into different groups or tab to easily manage Customizer and make customizer interface little simple.
     \item \textbf{Syntax to Hide parameters}
         This means there should be a syntax which could be used to Hiding certain parameters.
     \item \textbf{Syntax to make certain parameters Global}
         This means there should be a syntax which could be used to make certain parameters global i.e. they are present in each and every group.
-    \item \textbf{Save the set of parameters in JSON file}:
+    \item \textbf{Save the set of parameters in JSON file}
     This feature means there should be a way a way that gives user the ability to save the value of the parameter and also we can apply them through the cmd-line and get the output.
-   
-    \item \textbf{Provide GUI to add Set of Parameters}
+	
+	\item\textbf{ Provides option to reset parameters} All parameters in customizer could be reset to
+	default value just by the click of a button.
+    \item \textbf{GUI to add Set of Parameters}
         This means there should be a way to store different set of parameters which represent different models from generic model.
+  \item \textbf{ Cmd-line support to apply Set of Parameters} This means that values of
+    the parameter for given set can be applied to model using the cmd-line argument.
     \end{itemize}
 \subsection{Non-functional requirements}
 \begin{enumerate}
     \item Extensible: It should be able to support future functional requirements
     \item Usability: Simple user interfaces that a layman can understand.
     \item Modular Structure: The software should have  structure. So, that different parts of software would be changed without affecting other parts.
- 
+    \item Backward compatibility: Addition of new syntax should not forbid script to work correctly on the backward versions of OpenSCAD.
 \end{enumerate}
 

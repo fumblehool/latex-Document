@@ -10,30 +10,24 @@ To Make Parameteric candle Stand model in OpenSCAD using customizer
 /*[ Candle Stand ]*/
 //Lenght of candle stand
 length=50; // [70:large,50:medium,30:small]
-
 // Center stand
 cylinder(length,width-2);
-
 //Radius of ring of stand
 radius=25;
 
 /* [ Number of candle holders ]*/
 // Number of candle holders
 count=7; //[3:14]
-
 //Do you want center Candle
 centerCandle=true;
 
 /* [ Candle Holder ]*/
 //Lenght of candle holder
 candleSize=7;
-
 //Width of candle holder
 width=4;
-
 //Size of hole for candle holder
 holeSize=3;
-
 CenterCandleWidth=4;
 
 /*[Properties of support]*/
@@ -44,7 +38,6 @@ widthOfSupport=3;
 /*[Properties of Ring]*/
 
 heightOfRing=4;
-
 widthOfRing=23;
 
 
@@ -68,7 +61,6 @@ translate([0,0,length-candleSize/2]){
      cylinder(1,r=width);
  }
 }
-
 
 //Base of candle stand
 for (a = [0 : count - 1]) {
@@ -109,7 +101,7 @@ module make(radius, count,candleSize,length){
      make_ring_of(radius, count){
          cylinder(candleSize+1,r=holeSize);
      }
- }
+   }
 }
 
 
