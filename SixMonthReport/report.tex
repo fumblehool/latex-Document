@@ -7,7 +7,10 @@
 %\usepackage{sagetex}
 
 \usepackage{listings}
-
+%============================%
+\usepackage{url}
+%\usepackage{natbib}
+%============================%
 \usepackage{lastpage}
 \usepackage{macro/macro}
 \usepackage{float}
@@ -30,7 +33,6 @@
 \screensize{8cm}{9cm}
 \overlay{overlay8.pdf}
 \usepackage{graphicx}
-
 \begin{document}
 \input{input/titlepage.tex}
 \begin{screen}
@@ -104,10 +106,20 @@
 \input{input/ConclusionAndFutureScope/future.tex}
 
 
-\input{input/bibliography.tex}
+%\input{input/bibliography.tex}
 
 \appendix
 \chapter{Implementation Example}
 \input{input/Example.tex}
+%=========== Bibliography commands =============%
+\bibliographystyle{ieeetr} 
+\bibliography{database}
+%===============================================%
+%========= Citations demo ======================%
+\cite{gitkey}
+\cite{latexkey}
+\cite{doxygenkey}
+\cite{blog}
+%==============================================%
 \end{document}
 

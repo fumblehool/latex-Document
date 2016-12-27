@@ -10,3 +10,11 @@ After installing this, go to the directory 6-week-report through terminal and ty
 It will produce a pdf file named "report.pdf" in the current directory. Open that using this command:
     evince report.pdf
 
+Run below commands to get pdf:
+-----------------------------
+    1) pdflatex report.tex
+    2) bibtex report.aux
+    3) pdflatex report.tex 
+	 
+
+
