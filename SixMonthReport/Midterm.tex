@@ -89,7 +89,6 @@
 \input{input/Development/c++.tex}
 \input{input/Development/flex.tex}
 \input {input/Development/bison.tex}
-\input{input/Development/json.tex}
 \input{input/Development/qt.tex}
 %\input{input/Development/make.tex}
 %\input{input/Development/ctest.tex}
@@ -97,6 +96,181 @@
 \input{input/Development/latex.tex}
 \input {input/Development/doxygen.tex}
 \input{input/Development/git.tex}
+
+\section{Implementation}
+\subsection{Customizer}
+
+\begin{figure}
+	\centering \includegraphics[scale=0.60]{images/output/1.png}
+	\caption{StartUp Screen for OpenSCAD}
+	\label{fig:1}
+\end{figure}
+
+Customizer  will provide User Interface to Customize Models interactively instead of modifying them manually. It will make the user able to create the templates for given model which can further be customized to cater to their need of different users and also provide a feature to save the set of parameters which define a different model using the same template of the model.
+\subsection{Activation of Customizer functions}
+\begin{itemize}
+	
+	\item This is experimental functionality.So, Initially
+	OpenSCAD will look like \ref{fig:Normal OpenSCAD}
+	\item In [Edit] menu, select [Preferencews] then open tab [Features], tick Customizer, then close the window when tick shown \ref{fig:3}.
+	\item In View menu, you shall now have an option [Hide customizer], that you shall untick. Then you will be able to see the customizer \ref{fig:OpenSCAD with Customizer}
+	
+\end{itemize}
+
+\begin{figure}
+	\centering \includegraphics[width=\linewidth]{images/output/2.png}
+	\caption{OpenSCAD without customizer}
+	\label{fig:Normal OpenSCAD}
+\end{figure}
+\begin{figure}
+	\centering \includegraphics[width=\linewidth]{images/output/3.png}
+	\caption{Preferences Widget to activate Customizer}
+	\label{fig:3}
+\end{figure}
+\begin{figure}
+	\centering \includegraphics[width=\linewidth]{images/output/5.png}
+	\caption{OpenSCAD with Customizer }
+	\label{fig:OpenSCAD with Customizer}
+\end{figure}
+
+\subsection{Syntax support for generation of the customization form}
+
+\begin{lstlisting}[language=c++]
+// variable description
+variable name = defaultValue; // possible values
+\end{lstlisting}
+
+Parameter will be decorated with meta data using the comments and the single line comments above the parameter could be used to describe the meaning of the parameter and its use. The comments in same line as that of parameter is used to define the GUI that have to be used to modify that values of that parameter.
+
+Following is the syntax for how to define different types of widgets in the form
+
+\begin{enumerate}
+	\item \textbf{Drop down box:} \ref{fig:example} Following type of comboBox could be created with following syntax:
+	\begin{figure}
+		\centering
+		\includegraphics[width=\linewidth]{images/example}
+		\caption{Shows the different types ComboBox, Slider}
+		\label{fig:example}
+	\end{figure}
+	
+	\begin{lstlisting}[language=c++]
+	// combo box for nunber
+	Numbers=2; // [0, 1, 2, 3]
+	
+	// combo box for string
+	Strings="foo"; // [foo, bar, baz]
+	
+	//labeled combo box for numbers
+	Labeled_values=10; // [10:L, 20:M, 30:L]
+	
+	//labeled combo box for string
+	Labeled_value="S"; // [S:Small, M:Medium, L:Large]
+	\end{lstlisting}
+	\item \textbf{Slider:} Only numbers are allowed in this one, \ref{fig:example} specify any of the following:
+	\begin{lstlisting}[language=c++]
+	// slider widget for number
+	slider =34; // [10:100]
+	
+	//step slider for number
+	stepSlider=2; //[0:5:100]
+	\end{lstlisting}
+	\item \textbf{Checkbox:} \ref{fig:example1} Following widget is created with given syntax:
+	\begin{lstlisting}[language=c++]
+	//description
+	Variable = true;
+	\end{lstlisting}
+	\item \textbf{Spinbox:} \ref{fig:example1} Following widget is created with given syntax:
+	\begin{lstlisting}[language=c++]
+	// spinbox with step size 1
+	Spinbox= 5;
+	
+	// spinbox with step size 0.01
+	Spinbox= 5.11;
+	
+	//spinbox with given step size
+	SpinboxWithStep= 5; //2
+	\end{lstlisting}
+	\item \textbf{Textbox:} \ref{fig:example1} Following widget is created with given syntax:
+	\begin{lstlisting}[language=c++]
+	//Text box for vector with more than 4 elements
+	Vector=[12,34,44,43,23,23];
+	
+	// Text box for string
+	String="hello";
+	
+	\end{lstlisting}
+	\item \textbf{Special vector:} \ref{fig:example1} Following widget is created with given syntax:
+	\begin{lstlisting}[language=c++]
+	
+	//Text box for vector with less than or equal to 4 elements
+	Vector2=[12,34,45,23];
+	\end{lstlisting}
+	\begin{figure}
+		\centering
+		\includegraphics[width=\linewidth]{images/example1}
+		\caption{Shows the CheckBox, TextBox, SpinBox, VectorWidget}
+		\label{fig:example1}
+	\end{figure}
+	
+\end{enumerate}
+
+\subsection{Creating Tabs}
+Parameters can be grouped into \textbf{tabs}. This feature will allow us to separate similar and related parameters. The syntax for this is also mainly similar to that of Thingiverse syntax for creating the tabs. To create a tab, use a multi-line block comment like this:
+
+\textbf{/* [Tab Name] */}
+
+
+Screenshot number \ref{fig:5} Shows the implemenation of this feature.
+
+The following tab names are reserved for special functionality:
+\begin{description}
+	\item [Global] Parameters in the global tab will always be shown on every tab no matter which tab is selected. Note: there will be no tab for “Global” params, they will just always be shown in all the tabs.
+	
+	\item [Hidden] Parameters in the hidden tab will never be displayed. Not even the tab will be shown. Even though the variables who have not been parameterized using the Thingiverse or native syntax will not be displayed in OpenSCAD parameter widget but we have implemented this to make our comment like syntax similar as that of Thingiverse.
+\end{description}
+
+Also, the parameters who are under no tab will be displayed under TAB named “parameters”.
+\begin{lstlisting}[language=c++]
+// combo box for nunber
+Numbers=2; // [0, 1, 2, 3]
+
+// combo box for string
+Strings="foo"; // [foo, bar, baz]
+
+
+/*[ Slider ]*/
+// slider widget for number
+slider =34; // [10:100]
+
+//step slider for number
+stepSlider=2; //[0:5:100]
+
+/* [Global] */
+
+//description
+Variable = true;
+
+/*[Hidden] */
+
+// spinbox with step size 1
+Spinbox = 5;
+
+/* [Textbox] */
+
+//Text box for vector with more than 4 elements
+Vector=[12,34,44,43,23,23];
+
+// Text box for string
+String="hello";
+
+\end{lstlisting}
+
+\begin{figure}
+	\centering \includegraphics[width=\linewidth]{images/output/6.png}
+	\caption{Shows different groups generated through customzier}
+	\label{fig:5}
+\end{figure}
+
 \input{input/bibliography.tex}
 
 

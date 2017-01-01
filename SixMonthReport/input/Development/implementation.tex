@@ -41,10 +41,19 @@ Customizer  will provide User Interface to Customize Models interactively instea
     variable name = defaultValue; // possible values
     \end{lstlisting}
 
+Parameter will be decorated with meta data using the comments and the single line comments above the parameter could be used to describe the meaning of the parameter and its use. The comments in same line as that of parameter is used to define the GUI that have to be used to modify that values of that parameter.
+
 Following is the syntax for how to define different types of widgets in the form
 
 \begin{enumerate}
-    \item \textbf{Drop down box}
+    \item \textbf{Drop down box:} \ref{fig:example} Following type of comboBox could be created with following syntax:
+		\begin{figure}
+		\centering
+		\includegraphics[width=\linewidth]{images/example}
+		\caption{Shows the different types ComboBox, Slider}
+		\label{fig:example}
+		\end{figure}
+
     \begin{lstlisting}[language=c++]
     // combo box for nunber
     Numbers=2; // [0, 1, 2, 3]
@@ -58,7 +67,7 @@ Following is the syntax for how to define different types of widgets in the form
     //labeled combo box for string
     Labeled_value="S"; // [S:Small, M:Medium, L:Large]
     \end{lstlisting}
-    \item \textbf{Slider} Only numbers are allowed in this one, specify any of the following:
+    \item \textbf{Slider:} Only numbers are allowed in this one, \ref{fig:example} specify any of the following:
     \begin{lstlisting}[language=c++]
     // slider widget for number
     slider =34; // [10:100]
@@ -66,17 +75,23 @@ Following is the syntax for how to define different types of widgets in the form
     //step slider for number
     stepSlider=2; //[0:5:100]
     \end{lstlisting}
-    \item \textbf{Checkbox}
+    \item \textbf{Checkbox:} \ref{fig:example1} Following widget is created with given syntax:
     \begin{lstlisting}[language=c++]
     //description
     Variable = true;
     \end{lstlisting}
-    \item \textbf{Spinbox}
+    \item \textbf{Spinbox:} \ref{fig:example1} Following widget is created with given syntax:
     \begin{lstlisting}[language=c++]
     // spinbox with step size 1
     Spinbox= 5;
+    
+    // spinbox with step size 0.01
+    Spinbox= 5.11;
+    
+    //spinbox with given step size
+	SpinboxWithStep= 5; //2
     \end{lstlisting}
-    \item \textbf{Textbox}
+    \item \textbf{Textbox:} \ref{fig:example1} Following widget is created with given syntax:
     \begin{lstlisting}[language=c++]
     //Text box for vector with more than 4 elements
     Vector=[12,34,44,43,23,23];
@@ -85,12 +100,18 @@ Following is the syntax for how to define different types of widgets in the form
     String="hello";
    
     \end{lstlisting}
-    \item \textbf{Special vector}
+    \item \textbf{Special vector:} \ref{fig:example1} Following widget is created with given syntax:
     \begin{lstlisting}[language=c++]
    
     //Text box for vector with less than or equal to 4 elements
     Vector2=[12,34,45,23];
     \end{lstlisting}
+	\begin{figure}
+		\centering
+		\includegraphics[width=\linewidth]{images/example1}
+		\caption{Shows the CheckBox, TextBox, SpinBox, VectorWidget}
+		\label{fig:example1}
+	\end{figure}
 
 \end{enumerate}
 
