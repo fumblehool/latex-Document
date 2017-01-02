@@ -1,4 +1,4 @@
-\documentclass[12pt]{report}
+\documentclass[12pt,includeheadfoot,a4paper]{report}
 \usepackage[print,nopanel]{pdfscreen}
 %\begin{print}
 \usepackage{lipsum}% http://ctan.org/pkg/lipsum
@@ -74,47 +74,60 @@ This project will allow the modelers to create generic models (templates) which 
 
 This project is based on the User interface of OpenSCAD Software. The main idea of this project is to provide users with features to change certain variables or parameters in .scad file using form like interface which may include slide bar, check box, text box, ranges etc. so that we can visualize the changes in output on the basis of input side by side instead of manually changing different parameters. It will help the user able to create the templates for given model which can further be changed as per user's requirements.
 
-\section{Technologies Used}
-\subsection{C++}
-C++ is a general-purpose programming language. It has imperative, object-oriented and generic programming features, while also providing facilities for low-level memory manipulation.
-Features of Language:
+\input{input/introduction/ExistingSystem.tex}
+
+\section{User Requirement Analysis}
+User Requirements Analysis for a software system is a complete description of the requirements of the User. It includes functional Requirements
+and Non-functional Requirements. Non-functional requirements are
+requirements which impose constraints on the design or implementation.
+
+
+{\bf Users of the System:}
 \begin{enumerate}
-	\item Templates
-	\item Encapsulation
-	\item Inheritance
-	\item Operators and operator overloading
-	\item Polymorphism
-	\item Lambda expressions
-	\item Exception handling
+	\item Modeler: Modelers are the people how the code to create model theirs for their own use or for commercial use.
+	\item Client: These are the people which will customize model to their need made by modelers before ordering or printing model themselves.
+	\item Other Softwares: Many web Apps or other software using OpenSCAD as there Backend might need to interact with the customizer.
+	
 \end{enumerate}
 
-\subsection{Flex}
-Flex (fast lexical analyzer generator) is a free and open-source software alternative to lex. It is a computer program that generates lexical analyzers. It is frequently used as the lex implementation together with Berkeley Yacc parser generator on BSD-derived operating systems, or together with GNU bison (a version of yacc) in *BSD ports and in GNU/Linux distributions.
-
-\subsection{Bison}
-
-Bison is a general-purpose parser generator that converts an annotated context-free grammar into a deterministic LR or generalized LR (GLR) parser employing LALR(1) parser
-tables.
-Once you are proficient with Bison, you can use it to develop a wide range of language parsers, from those used in simple desk calculators to complex programming languages.
-
-\subsection{JSON}
-
-JSON (JavaScript Object Notation) is a lightweight data-interchange format. It is easy for humans to read and write. It is easy for machines to parse and generate. JSON is a text format that is completely language independent but uses conventions that are familiar to programmers of the C-family of languages, including C, C++, C\#, Java, JavaScript, Perl, Python, and many others. These properties make JSON an ideal data-interchange language.
-
-\subsection{Qt}
-
-Qt is a cross-platform application framework that is widely used for developing application software that can be run on various software and hardware platforms with little or no change in the underlying codebase, while still being a native application with native capabilities and speed. 
-
-\subsection{Doxygen}
-Doxygen is a documentation generator, a tool for writing software reference 
-documentation. The documentation is written within code, and is thus 
-relatively easy to keep up to date. Doxygen can cross reference 
-documentation and code, so that the reader of a document can easily 
-refer to the actual code.
-
-
-\subsection{Github}
-GitHub is a Git repository web-based hosting service which offers all of the functionality of Git as well as adding many of its own features. Unlike Git which is strictly a command-line tool, Github provides a web-based graphical interface and desktop as well as mobile integration. It also provides access control and several collaboration features such as wikis, task management, and bug tracking and feature requests for every project.
+\subsection{Functional Requirements}
+\begin{itemize}
+	\item {\bf Syntax to generate a widget to modify parameter}: This means there should be a syntax which could be used to generate a different widget for a different type of parameters.
+	The widgets that we intend to support are:
+	\begin{enumerate}
+		\item Spinbox
+		\item Checkbox
+		\item Slider
+		\item Textbox
+		\item VectorWidget
+		\item Combo Box
+		
+	\end{enumerate}
+	\item {\bf Syntax to Describe parameter}
+	This means there should be a syntax which could be used to provide a description for the parameter.
+	\item \textbf{Syntax to Group Parameter}
+	This means there should be a syntax which could be used to group the parameters into different groups or tab to easily manage Customizer and make customizer interface little simple.
+	\item \textbf{Syntax to Hide parameters}
+	This means there should be a syntax which could be used to Hiding certain parameters.
+	\item \textbf{Syntax to make certain parameters Global}
+	This means there should be a syntax which could be used to make certain parameters global i.e. they are present in each and every group.
+	\item \textbf{Save the set of parameters in JSON file}
+	This feature means there should be a way a way that gives user the ability to save the value of the parameter and also we can apply them through the cmd-line and get the output.
+	
+	\item\textbf{Provides option to reset parameters} All parameters in customizer could be reset to
+	default value just by the click of a button.
+	\item \textbf{GUI to add Set of Parameters}
+	This means there should be a way to store different set of parameters which represent different models from generic model.
+	\item \textbf{Cmd-line support to apply Set of Parameters} This means that values of
+	the parameter for given set can be applied to model using the cmd-line argument.
+\end{itemize}
+\subsection{Non-functional requirements}
+\begin{enumerate}
+	\item Extensible: It should be able to support future functional requirements
+	\item Usability: Simple user interfaces that a layman can understand.
+	\item Modular Structure: The software should have  structure. So, that different parts of software would be changed without affecting other parts.
+	\item Backward compatibility: Addition of new syntax should not forbid script to work correctly on the backward versions of OpenSCAD.
+\end{enumerate}
 
 
 \chapter{FEASIBILITY STUDY}
@@ -138,14 +151,14 @@ a project. These are some feasibility factors by which we can used to determine 
 	
 \end{itemize}
 
-\section{Objective of Project}
+\section{Significance of Project}
 
 One of the primary benefits of OpenSCAD is the ability to design customizable content. These are designs which are parametrized using parameters or top-level variables.
 
 Some projects utilize OpenSCAD's ability to customize designs as part of their web services.
 e.g. Thingiverse Customizer, Sculpteo Parametric Designs, e-NABLE Handomatic.
 
-The goal of this project is two-fold:
+The Significance of this project is two-fold:
 \begin{enumerate}
 	\item  Offer an auto-generated GUI associated with a customizable design, making it easier to both create and use such designs
 	\item Offer an authoritative standard for how to specify meta-data to guide the generation of such a GUI.
@@ -159,7 +172,7 @@ As a temporary measure, we're also planning to support the meta-data syntax used
 
 \chapter{PLANNING OF WORK}
 
-The basic implementation of this project is done using prototype model. There is need to modify the structure of the project. We have to divide the task into there parts:
+The basic implementation of this project is done using prototype model. There is need to modify the structure of the project. We have to divide the task into there parts and its describe the with following figure \ref{fig:FD1} :
 
 \begin{enumerate}
 	\item \textbf{Front end}
@@ -168,9 +181,14 @@ The basic implementation of this project is done using prototype model. There is
 		\item \textbf{Individual Parameter}
 		This will define how individual parameters will look like
 		\item \textbf{Container Widget}
-		This will contain UI features common to all parameter. This widget will contain all parameter widget.
-		
+		This will contain UI features common to all parameter. This widget will contain all parameter widget.	
 	\end{enumerate}
+	
+	\begin{figure}[H]
+		\centering \includegraphics[width=\linewidth]{images/flowchart.png}
+		\caption{Flowchart of Customizer}
+		\label{fig:FD1}
+	\end{figure}
 	
 	\item \textbf{Back End}
 	This will include the parser part that will create AST nodes and we can extract the parameters from the AST. we can use the single parser for the whole .scad file or separate parser for extracting the parameters with annotations.
@@ -187,16 +205,7 @@ Implementation of the project will start with:
 	\item In Last, The GUI of the project will be defined which will include main ParameterWidget class to generate whole Customizer and parameterWidgetVirtual class which will be the base class for all the Parameter Widget. In Last, We will define groupWidget which will make groups of parameters and the ParameterSet class which will be used to define the Set of Parameter.
 \end{enumerate}
  
- 
-
 \chapter{FACILITIES REQUIRED FOR PROPOSED WORK}
-\section{Hardware Requirements}
-The following hardware components are to be used in the development of this project:
-\begin{enumerate}
-	\item A host running on Linux .
-	\item A good internet connection. 
-\end{enumerate}
-
 
 \section{Software Requirements}
 The following softwares may be used while developing and testing the software:
@@ -245,21 +254,16 @@ The following softwares may be used while developing and testing the software:
 
 \bibitem{} "User:Amarjeet Singh Kapoor/GSoC2016/Project - BRL-CAD", Brlcad.org, 2016. [Online]. Available: http://brlcad.org/wiki/User:Amarjeet\_Singh\_Kapoor/GSoC2016/Project. [Accessed: 27- Nov- 2016].
 
-\bibitem{}"Qt (software)", En.wikipedia.org, 2016. [Online]. Available: https://en.wikipedia.org/wiki/Qt\_(software). [Accessed: 27- Nov- 2016].
-
-\bibitem{} "C++", En.wikipedia.org, 2016. [Online]. Available: https://en.wikipedia.org/wiki/C\%2B\%2B. [Accessed: 27- Nov- 2016].
+\bibitem{} "OpenSCAD - News", Openscad.org, 2016. [Online]. Available: http://www.openscad.org/news.html\#20160714. [Accessed: 27- Nov- 2016].
 
 \bibitem{} "OpenSCAD - News", Openscad.org, 2016. [Online]. Available: http://www.openscad.org/news.html\#20160714. [Accessed: 27- Nov- 2016].
 
-\bibitem{} "User Interface for Customizing Models", amarjeetkapoor1, 2016. [Online]. Available: https://amarjeetkapoor1.wordpress.com/2016/07/04/user-interface-for-customizing-models/. [Accessed: 27- Nov- 2016].
-
-\bibitem{} "OpenSCAD - News", Openscad.org, 2016. [Online]. Available: http://www.openscad.org/news.html\#20160714. [Accessed: 27- Nov- 2016].
-
-\bibitem{} J. Levine, Flex \& bison, 1st ed. Sebastopol, Calif.: O'Reilly Media, 2009.
-
-\bibitem{} C. Donnelly and R. Stallman, Bison, 1st ed. Boston, MA: Free Software Foundation, 1999.
 
 \bibitem{} "openscad/openscad", GitHub, 2016. [Online]. Available: https://github.com/openscad/openscad. [Accessed: 27- Nov- 2016].
+
+\bibitem{} "openscad/openscad", GitHub, 2016. [Online]. Available: https://github.com/openscad/openscad/wiki/Project\%3A-Form-based-script-parameterization. [Accessed: 27- Nov- 2016].
+
+\bibitem{} "OpenSCAD", En.wikipedia.org, 2016. [Online]. Available: https://en.wikipedia.org/wiki/OpenSCAD. [Accessed: 27- Nov- 2016].
 
 \end{thebibliography}
 \end{document}
