@@ -3,7 +3,7 @@
 \end{Large}
 OpenSCAD is an open source organization that serves a free software to create solid 3d CAD objects. OpenSCAD has in a way redefined how easy 3D modeling can be. But the Wikipedia article on OpenSCAD says that it is a non-interactive modeler, but rather a 3D compiler based on a textual description language.
 
-In openSCAD when the object is described using the textual description language, the description is first compiled (following intermediate forms) into a node tree. This node tree consists, in geometric terms, the details of every component of the final design. Then follows the rendering process. This process is very CPU intensive and eats up a lot of cycles. This involves traverssing the node tree from the very bottom and evaluating nodes as they are encountered. Each evaluated node is then rendered on the screen.
+In OpenSCAD when the object is described using the textual description language, the description is first compiled (following intermediate forms) into a node tree. This node tree consists, in geometric terms, the details of every component of the final design. Then follows the rendering process. This process is very CPU intensive and eats up a lot of cycles. This involves traverssing the node tree from the very bottom and evaluating nodes as they are encountered. Each evaluated node is then rendered on the screen.
 
 In its present form, the compile and render processes are done in one thread under the one process. This is of course not the most optimal ways of going about this problem.
 

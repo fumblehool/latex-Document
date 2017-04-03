@@ -1,4 +1,4 @@
-\section{User Requirement Analysis}
+\section{Software Requirement Specification}
 The main requirement is to some how paralleize the evaluation of nodes in the node tree. This can be achieved by either taking a multithreading approach or having two separate processes for compile and render itself. The major concern is the non thread safety of CGAL library which needs to be accounted for.
 Another follow up requirement is to add a cancel mechnism to any ongoing render process without loosing context on already evaluated nodes in the tree.
 
@@ -10,6 +10,10 @@ Another follow up requirement is to add a cancel mechnism to any ongoing render 
 	\item Introducing a halt mechanism on ongoing render processes.
 	\item Safe exit from compilation.
 \end{itemize}
+
+\subsection{Performance Requirement} 
+
+\subsection{Dependability Requirement}
 
 \subsection{Non-functional requirements}
 \begin{enumerate}
