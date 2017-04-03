@@ -1,0 +1,6 @@
+\section{Product Functions}
+Our project current augments the following features to OpenSCAD:
+\begin{enumerate}
+	\item \bf{Multi-threaded geometric rendering}: The process of rendering which includes traverssing and then evaluating each node in the abstract node tree is tweaked to work using multiple threads all connected to one another in a hierarchical manner mimicing the original tree. All of this is done in order to ensure that work load is divided between different processor cores in the machine.
+	\item \bf{Cancellation of the rendering process}: Once the rendering process has been started it should be cancellable from a button in the proggress widget for the rendering process.
+\end{enumerate}

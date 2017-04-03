@@ -1,0 +1,13 @@
+\section{Product Perspective}
+This product is supposed to be part of an open source project, under the GNU general public license. It is a CAD software for programmers i.e. you code to make models in 3D. Rendering is the process of turning the model created in openSCAD into something the user is able to see on the screen. This is a complex process and is done using special libraries. Since the rendering process is a complex one and often the models created by the users are of great size and detail, the time consumed by the rendering process is not brief to say the least.
+This may be acceptable when the user actually wants to finally render their model and see the results after they are done with their script and are satisified with the result. But when the user just wants to have a quick look at how the model is turning out or even if the render command is given by accident, the time it takes for the rendering to complete can be very problamatic.
+That is where the idea of adding multithreading to the whole process came into fruition. It makes sense that for doing such cpu intensive computations, the software is able to use all the cpu power available in the machine on which it is running. This was not the case. And doing so will also ensure that valuable time is saved in the rendering process. If the redering is done via multithreading, it will also allow us to control when the rendering process is to be terminated and how. This will allow us to cancel the process right in its tracks if we do not wish to continue with it.
+The following are the main features included in the OpenSCAD's Multithreaded Geometric Rendering:
+\begin{itemize}
+	\item \bf{Cross platform support}: It is able to offer operating support for most of the known and commercial operating systems in form of binaries and also it can be compiled on the platforms.
+	\item \bf{Backward compatible}: OpenSCAD should be backward compatible even after new features have been implemented.
+	\item \bf{No change in user interaction}: There is no change in which the user interacts with the software or the way in which the code is written by user in order to create models.
+	\item \bf{Increased speed}: The speed with which rendering of the model is done will improve based on the number of cores of processors available in the machines.
+	\item \bf{Increased efficiency}: Gain in speed is just a fruit of the actual increase in performance. This is obvious as the cpu idle time is reduced and resources are used to their fullest.
+	\item \bf{Ability to halt the process}: The rendering process can be halted in between by pressing the cancel button.
+\end{itemize}

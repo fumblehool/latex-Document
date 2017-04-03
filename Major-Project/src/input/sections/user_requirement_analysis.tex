@@ -1,0 +1,21 @@
+\section{User Requirement Analysis}
+The main requirement is to some how paralleize the evaluation of nodes in the node tree. This can be achieved by either taking a multithreading approach or having two separate processes for compile and render itself. The major concern is the non thread safety of CGAL library which needs to be accounted for.
+Another follow up requirement is to add a cancel mechnism to any ongoing render process without loosing context on already evaluated nodes in the tree.
+
+\subsection{Functional Requirements}
+\begin{itemize}
+	\item Parallel processing of Nodes.
+	\item Maintaining thread safety of CGAL.
+	\item Sustaining caching of previosuly evaluated nodes to improve speed during repeated renders of the model.
+	\item Introducing a halt mechanism on ongoing render processes.
+	\item Safe exit from compilation.
+\end{itemize}
+
+\subsection{Non-functional requirements}
+\begin{enumerate}
+	\item Extensible: It should be able to support future functional requirements
+	\item Usability: Simple user interfaces that a layman can understand.
+	\item Modular Structure: The software should have  structure. So, that different parts of software would be changed without affecting other parts.
+	\item Backward compatibility: Addition of new syntax should not forbid script to work correctly on the backward versions of OpenSCAD.
+\end{enumerate}
+

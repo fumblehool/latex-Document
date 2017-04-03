@@ -1,0 +1,88 @@
+\documentclass[12pt]{report}
+\usepackage[print,nopanel]{classes/pdfscreen}
+%\begin{print}
+\usepackage{classes/lipsum}% http://ctan.org/pkg/lipsum
+\usepackage{classes/titletoc}
+%\section{type}
+\usepackage{classes/lastpage}
+\usepackage{classes/macro}
+\usepackage{classes/float}
+\usepackage{fancyhdr}
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{K}[1]{>{\centering\arraybackslash}p{#1}}
+\usepackage{xcolor, colortbl}
+\definecolor{Gray}{gray}{0.85}
+\usepackage{verbatim}
+\usepackage[Glenn]{classes/fncychap}
+\usepackage{placeins}
+\let\Oldsubsection\subsection
+\renewcommand{\subsection}{\FloatBarrier\Oldsubsection}
+\lhead{\tiny\bfseries Multi-Threaded Geometric Rendering}
+\usepackage[left=2.5cm, right=1.5cm, top=2.5cm, bottom=1.5cm]{geometry}
+\pagestyle{fancy}
+%\end{print}
+\margins{2.5cm}{1.5cm}{1.5cm}{1.5cm}
+\linespread{1.25}
+\begin{screen}
+	\renewcommand{\encodingdefault}{T1}
+ 	\usepackage{setspace}
+	\linespread{1.5}
+	\renewcommand{\rmdefault}{ptm}
+\end{screen}
+\screensize{8cm}{9cm}
+\overlay{overlay8.pdf}
+\usepackage{graphicx}
+
+\begin{document}
+	\input{input/titlepage.tex}
+	\begin{screen}
+		\ppttitle
+	\end{screen}
+	\footskip 0.7cm
+	\thispagestyle{empty}
+
+	\pagetitle
+	\newpage
+
+	\pagenumbering{Roman}
+	\cfoot{\thepage}
+
+	\input{input/abstract.tex}
+	\newpage
+
+	\input{input/acknowledgement.tex}
+	\newpage
+
+	\setcounter{secnumdepth}{3}
+	\setcounter{tocdepth}{3}
+	\tableofcontents
+	\newpage
+
+	\listoffigures
+	\newpage
+
+	\listoftables
+	\newpage
+
+	\pagenumbering{arabic}
+	\cfoot{\thepage}
+
+	\vskip -2cm
+	\input{input/Introduction.tex}
+	\newpage
+
+	\input{input/Requirement_Analysis_and_System_Specification.tex}
+	\newpage
+
+	\input{input/System_Design.tex}
+	\newpage
+
+	\input{input/Implementation_Testing_and_Maintenance.tex}
+	\newpage
+
+	\input{input/Conclusions_and_Future_Scope.tex}
+	\newpage
+	
+	\input{input/references.tex}
+\end{document}
