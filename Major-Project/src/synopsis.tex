@@ -18,6 +18,8 @@
 \usepackage{placeins}
 \let\Oldsubsection\subsection
 \renewcommand{\subsection}{\FloatBarrier\Oldsubsection}
+\let\Oldsection\section
+\renewcommand{\section}{\FloatBarrier\Oldsection}
 \lhead{\bfseries Multi-Threaded Geometric Rendering}
 \rhead{}
 \usepackage[left=2.5cm, right=1.5cm, top=1.5cm, bottom=1.5cm]{geometry}

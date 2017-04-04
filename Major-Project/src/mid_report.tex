@@ -18,13 +18,15 @@
 \usepackage{placeins}
 \let\Oldsubsection\subsection
 \renewcommand{\subsection}{\FloatBarrier\Oldsubsection}
+\let\Oldsection\section
+\renewcommand{\section}{\FloatBarrier\Oldsection}
 \lhead{ \bfseries Multi-Threaded Geometric Rendering}
 \rhead{}
 \usepackage[left=2.5cm, right=1.5cm, top=1.5cm, bottom=1.5cm]{geometry}
 \pagestyle{fancy}
 %\end{print}
 \margins{2.5cm}{1.5cm}{1.5cm}{1.5cm}
-
+\linespread{1.25}
 \begin{screen}
 	
 	\renewcommand{\encodingdefault}{T1}
@@ -38,7 +40,7 @@
 
 
 \begin{document}
-	\input{input/titlepage.tex}
+	\input{input/mid_titlepage.tex}
 	\begin{screen}
 		\ppttitle
 	\end{screen}
@@ -65,7 +67,6 @@
 	\input{input/Requirement_Analysis_and_System_Specification.tex}
 	\input{input/System_Design.tex}
 	\input{input/mid_implementation.tex}
-	\input{input/Result.tex}
 	\input{input/mid_conclusions.tex}
 	\newpage
 	
