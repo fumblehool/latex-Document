@@ -14,19 +14,19 @@ Even though it has been mentioned before profoundly, we feel the need the reiter
 	The OpenSCAD modelling language thrives for the reasons any high level language thrives over a more machine related language. Time and effort of the programmer is saved and readability, portability are gained.
 \end{itemize}
 Here is a snapshot of the a model description using the above mentioned langauage:
-\begin{figure}[H]
+\begin{figure}
     \centering \includegraphics[width=\linewidth]{images/output/5.png}
-    \caption{StartUp Screen for OpenSCAD}
+    \caption{Working example of OpenSCAD}
     \label{fig:1}
 \end{figure}
 This language is parsed and converted into an Abstract Syntax Tree. This AST is used to turn descriptions of the objects into their graphic form. The AST is fed to an evaluator which reads the entire abstract syntac tree and turn it into a nodal tree. Each node in the tree represents geometric forms to be drawn. Once the node tree has been generated, references of this are pased around in order to accomplish various things. The same node tree can be used to generate the preview of the model using CSG and the same node tree is used to render the model. All of this can be summarised by the following flow chart:
-\begin{figure}[H]
+\begin{figure}
     \centering 
     \includegraphics[width=\linewidth]{images/flowchart.png}
     \caption{Working flow of OpenSCAD}
 \end{figure}
 The first thing that was needed to be done was understanding the flow of the software and figuring out what sections of code needs to be parallelized. After forming a firmer understanding of the problem, it was required to check all the relevant data structures involved in evaluating the tree nodes. It was also be checked if any data structures used were needed to be modified or not. After fixing the appropriate data structures, all the feasible and plausible approaches were to be explored. Each approach has been evaluated on its merits and feasibility. Among all the options the one which is works well across all platform has been chosen. It goes without saying that the chosen solution has to meet all the requirement and implement the solution efficiently. After going through all of this the implementation began. The diagram below depicts the intended approach:
-\begin{figure}[H]
+\begin{figure}
     \centering 
     \includegraphics[width=\linewidth]{images/finalflow.png}
     \caption{Flowchart for the solution}
@@ -41,7 +41,7 @@ On carefull examination of the code, it was found that the cancel button was alr
 It is easy see that most pieces of the puzzle are already there. It is just required to place them properly and make them come together.\\
 On some rigorous source browsing and consultation with the OpenSCAD developers, it was found that the assignment to true of the variable wasCancelled actually throws a programmer made exception: ProgressCancelException. Our job was to ensure that proper action is taken when this exception is raised. To do so, we had to tweak the visit() function which is responsible for visiting each node in the tree. This function was not singular. There were any overloaded versions of this depending on the type of node being visited. Hence the same work had to be done for each node.\\
 After visiting each node, a made to call to a reporting function was made to happen. This function basically communicates to the progress widget about the number of nodes visited by it. The progress bar ranges from 1 to 1000. But this is not the sole purpose of this function, it also check at the end whether the exception has been raised or not. If it finds the exception is raised, it sets in motion a sequence of function calls that lead to safe halt of the render process. The following figure shows the working of the progress report and the cancel button:
-\begin{figure}[H]
+\begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{images/output/progress_widget.png}
 	\caption{Progress Widget working}
@@ -51,13 +51,13 @@ After visiting each node, a made to call to a reporting function was made to hap
 The other parts of the tree are to be ignored. This certainly can not be done by commenting out, or deleting other nodes in the description of the language and then recompiling it. That approach would be very counterproductive.\\
 A better way of doing this would be let the whole tree be in place. And when it is time to compile the part of the tree, simply tell the compiler to skip over to the subtree that is required and quit as soon as the compiler is done with that subtree. This way, nothing has to get deleted and only that part is compiled that is actually required. That is why there is a mechanism by which the user is allowed to set for a temporary period of time, a pseudo-root node. This root node can be anywhere in the tree. And when this is to be rendered, the software searches for it in the tree and returns a reference for it.\\
 However, since the user is allowed to set multiple pseudo nodes in the tree, the searching function has to store references to all of them. Eventually only the first one of these stored references are used, but others are stored nonetheless. And if infact there are no such pseudo root nodes in the tree, then null is returned, indicating that the actuall root of the tree is to be treated as the root for the next render. It is important that we store all the nodes that have been marked as pseudo-roots. This marking is done by setting an attribute of each node to RootTag. This significanc stems from the fact that it is unnatural and hence useless to have multiple nodes as pseudo roots. For this reason, the user must be reminded as to how many markers have been set. This reminder is given in the form of a warning. In the picture below, one can see how the system worked before:\\
-\begin{figure}[H]
+\begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{images/output/before_okay.png}
 	\caption{Finding RootTag nodes previously}
 \end{figure}
 In this figure we can see how only one node has been marked as the pseudo root node (using the exclamation mark). And corresponding to it, we see no warnings because no warnings are due. But consider the following case:\\
-\begin{figure}[H]
+\begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{images/output/before_wrong.png}
 	\caption{Finding multiple RootTag nodes previously}
@@ -65,7 +65,7 @@ In this figure we can see how only one node has been marked as the pseudo root n
 As seen, even though we had multilpe tags in the model, we didn't get any warnings.
 The previous version of this function would search through the tree to find this tag. And the function would return as soon as it has found the first node with this tag or if it has exhausted the search space. In anycase, it was not possible to store all the nodes. We have implemented a solution to this problem by amending this search function.\\
 In the present version of this function, we have implemented a lambda function. This lambda function recurses through the entire tree and checks to see if a node is marked or not. All the marked nodes are stored in vector. The result will still be the same as before because only the first element stored in the vector will be rendered, but atleast with this approach, the user is provided with a list of nodes that they have marked unnecessairily. The following figure shows how things are done now:\\
-\begin{figure}[H]
+\begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{images/output/now_right.png}
 	\caption{Finding multiple RootTag nodes now}

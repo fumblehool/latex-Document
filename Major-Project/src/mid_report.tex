@@ -16,10 +16,10 @@
 \usepackage{verbatim}
 \usepackage[Glenn]{classes/fncychap}
 \usepackage{placeins}
-\let\Oldsubsection\subsection
-\renewcommand{\subsection}{\FloatBarrier\Oldsubsection}
-\let\Oldsection\section
-\renewcommand{\section}{\FloatBarrier\Oldsection}
+%\let\Oldsubsection\subsection
+%\renewcommand{\subsection}{\FloatBarrier\Oldsubsection}
+%\let\Oldsection\section
+%\renewcommand{\section}{\FloatBarrier\Oldsection}
 \lhead{ \bfseries Multi-Threaded Geometric Rendering}
 \rhead{}
 \usepackage[left=2.5cm, right=1.5cm, top=1.5cm, bottom=1.5cm]{geometry}
@@ -49,15 +49,18 @@
 	\newpage
 	\pagenumbering{Roman}
 	\cfoot{\thepage}
-	
+	\addcontentsline{toc}{section}{Abstract}
 	\input{input/abstract.tex}
 	\newpage
+	
+	\addcontentsline{toc}{section}{Acknowledgement}
 	\input{input/acknowledgement.tex}
 	
 	\newpage
-	\tableofcontents
-	\newpage
+	\addcontentsline{toc}{section}{List of Figures}
 	\listoffigures
+	\newpage
+	\tableofcontents
 	\newpage
 	
 	\pagenumbering{arabic}
