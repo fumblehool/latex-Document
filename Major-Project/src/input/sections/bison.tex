@@ -1,0 +1,33 @@
+\section{Bison}
+
+\begin{figure}[h]
+	\centering \includegraphics[scale=0.2]{images/gnu.png}
+	\caption{GNU Logo}
+\end{figure}
+
+Bison is a general-purpose parser generator that converts an annotated context-free grammar into a deterministic LR or generalized LR (GLR) parser employing LALR(1) parser
+tables.
+Once you are proficient with Bison, you can use it to develop a wide range of language parsers, from those used in simple desk calculators to complex programming languages.
+
+
+Bison is upward compatible with Yacc: all properly-written Yacc grammars ought to work with Bison with no change. Anyone familiar with Yacc should be able to use Bison with little trouble. You need to be fluent in C or C++ programming in order to use Bison
+or to understand this manual. Java is also supported as an experimental feature.
+
+
+Bison was written originally by Robert Corbett. Richard Stallman made it Yacc-compatible. Wilfred Hansen of Carnegie Mellon University added multi-character string literals and other features. Since then, Bison has grown more robust and evolved many
+other new features thanks to the hard work of a long list of volunteers.
+
+Bison .y specification file:
+
+\begin{verbatim}
+	/*** Definition section ***/
+	
+	%%
+	
+	/*** Rules section ***/
+	
+	%%
+	
+	/*** C Code section ***/
+
+\end{verbatim}
