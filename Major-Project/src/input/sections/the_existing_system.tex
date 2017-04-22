@@ -5,6 +5,9 @@ OpenSCAD in its present form applies the compile and render process sequentially
 	\item The AST is converted into an Abstract Node Tree. This consists of the nodes that are to become the part of the final model.
 	\item The node tree is fed to the CSGEvaluator which generates a preview of the model abstracting finer details.
 	\item The final rendering of the model is done by the GeometryEvaluator.
+	\item There are some cases where incorrect use of certain syntax is not caught. This may lead to unexpected behaviour.
+	\item When tagging certain nodes as root for the next render, the user is allowed to tag more than one node. In such cases, no warning is given to the user on how this may lead to unexpected behaviour.
+	\item The cancel button on the progress report widget does not work for CGAL rendering.
 \end{enumerate}
 
 \begin{figure}[H]
