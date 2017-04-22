@@ -6,11 +6,13 @@ In essence, the visitor allows adding new virtual functions to a family of class
 The Gang of Four defines the Visitor as:\\
 Represent an operation to be performed on elements of an object structure. Visitor lets you define a new operation without changing the classes of the elements on which it operates.\\
 The nature of the Visitor makes it an ideal pattern to plug into public APIs thus allowing its clients to perform operations on a class using a “visiting” class without having to modify the source.
-\begin{figure}[H]
+\begin{figure}
 	\centering
-	\includegraphics{images/visitor_pattern.png}
-	\caption{Visitor Pattern}
+	\includegraphics[width=\linewidth]{images/Visitor_design_pattern}
+	\caption{Visitor Pattern UML Diagram}
+	\label{fig:visitordesignpattern}
 \end{figure}
+
 \subsubsection{Motivation}
 Consider the design of a 2D computer-aided design (CAD) system. At its core there are several types to represent basic geometric shapes like circles, lines, and arcs. The entities are ordered into layers, and at the top of the type hierarchy is the drawing, which is simply a list of layers, plus some added properties.\\
 A fundamental operation on this type hierarchy is saving a drawing to the system's native file format. At first glance it may seem acceptable to add local save methods to all types in the hierarchy. But it is also useful to be able to save drawings to other file formats. Adding ever more methods for saving into many different file formats soon clutters the relatively pure original geometric data structure.\\

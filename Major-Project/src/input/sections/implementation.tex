@@ -80,49 +80,49 @@ As mentioned before, OpenSCAD uses a modelling language to form models. This lan
 The issue pertaining to this section is related to the semantic analysis phase of the compilation of the language. During the checking of the grammer of the language, some oversights were observed. This means there were some wrongfull syntax that was allowed to pass throught the semantic analysis phase undetected. While this did not create any issues in the final model but still having such oversights could lead to problems when the language is expanded in future. Following is the list of such oversights that were fixed by us as part of this project. You can also see images showing how no error messages have been given:
 \begin{itemize}
 	\item The use tag is supposed to have the syntax as \textbf{use < .. >}. But if one does not close the the brackets then that did not give any errors before.
-	\begin{figure}[H]
+	\begin{figure}
 		\centering
 		\includegraphics[width=\linewidth]{images/output/grammer_use_old.png}
 		\caption{Use tag incomplete syntax undetected}
 	\end{figure}
 	After fixing the grammer for this we can see that now there is an error message regarding this mistake:
-	\begin{figure}[H]
+	\begin{figure}
 		\centering
 		\includegraphics[width=\linewidth]{images/output/grammer_use_new.png}
 		\caption{Use tag incomplete syntax detected}
 	\end{figure}
 	\item The include tag is supposed to have the syntax as \textbf{include < .. >}. But if one does not close the brackets then that did not give any errors before.
-	\begin{figure}[H]
+	\begin{figure}
 		\centering
 		\includegraphics[width=\linewidth]{images/output/grammer_include_old.png}
 		\caption{Include tag incomplete syntact undetected}
 	\end{figure}
 	After fixing the grammer for this we can see that now there is an error message regarding this mistake:
-	\begin{figure}[H]
+	\begin{figure}
 		\centering
 		\includegraphics[width=\linewidth]{images/output/grammer_include_new.png}
 		\caption{Include tag incomplete syntax detected}
 	\end{figure}
 	\item The string literals are written inside double quotes. Earliear these double quotes if placed alone would go undetected. They are supposed to be in pairs.
-	\begin{figure}[H]
+	\begin{figure}
 		\centering
 		\includegraphics[width=\linewidth]{images/output/grammer_quote_old.png}
 		\caption{Strings in double quotes incomplete syntax undetected}
 	\end{figure}
 	After fixing the grammer for this we can see that now there is an error message regarding this mistake:
-	\begin{figure}[H]
+	\begin{figure}
 		\centering
 		\includegraphics[width=\linewidth]{images/output/grammer_quote_new.png}
 		\caption{Strings in double quotes incomplete syntax detected}
 	\end{figure}
 	\item The multiline comments in OpenSCAD follows the usual syntax. But when a comment is started and not finished, then the system was not able to detect this error.
-	\begin{figure}[H]
+	\begin{figure}
 		\centering
 		\includegraphics[width=\linewidth]{images/output/grammer_comment_old.png}
 		\caption{Multiline comment incomplete syntax undetected}
 	\end{figure}
 	After fixing the grammer for this we can see that now there is an error message regarding this mistake:
-	\begin{figure}[H]
+	\begin{figure}
 		\centering
 		\includegraphics[width=\linewidth]{images/output/grammer_comment_new.png}
 		\caption{Multiline comment incomplete syntax detected}
