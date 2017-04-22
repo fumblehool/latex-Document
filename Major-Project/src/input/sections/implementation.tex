@@ -70,3 +70,61 @@ In the present version of this function, we have implemented a lambda function. 
 	\includegraphics[width=\linewidth]{images/output/now_right.png}
 	\caption{Finding multiple RootTag nodes now}
 \end{figure}
+\subsection{Fixing Grammer Issues}
+As mentioned before, OpenSCAD uses a modelling language to form models. This language serves as a description of the model. It has many features and is very powerful. Whenever these is language to be processed, one needs a compiler or interpretter for it. The language goes through following steps in general:
+\begin{enumerate}
+	\item \textbf{Lexical analysis}: In this step the language is tokenized and each token is classified into predefined categories. If any token is found which does not belong to a category then that is declared as an error. This part is done using \textbf{Flex} in OpenSCAD.
+	\item \textbf{Semantic analysis}: In this step the tokens classified are checked to see if the order in which these tokens are written in the script make any sense from the perspective of the language. This is same as checking whether the words in the English language are ordered right in a sentence or not. This is done by cchecking the input against certain grammer rules. The grammer rules of OpenSCAD are defined using \textbf{Bison}.
+	\item \textbf{Code generation}: Once the grammer is checked and no errors are found, the langauge is converted into code that the machine can understand.
+\end{enumerate}
+The issue pertaining to this section is related to the semantic analysis phase of the compilation of the language. During the checking of the grammer of the language, some oversights were observed. This means there were some wrongfull syntax that was allowed to pass throught the semantic analysis phase undetected. While this did not create any issues in the final model but still having such oversights could lead to problems when the language is expanded in future. Following is the list of such oversights that were fixed by us as part of this project. You can also see images showing how no error messages have been given:
+\begin{itemize}
+	\item The use tag is supposed to have the syntax as \textbf{use < .. >}. But if one does not close the the brackets then that did not give any errors before.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\linewidth]{images/output/grammer_use_old.png}
+		\caption{Use tag incomplete syntax undetected}
+	\end{figure}
+	After fixing the grammer for this we can see that now there is an error message regarding this mistake:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\linewidth]{images/output/grammer_use_new.png}
+		\caption{Use tag incomplete syntax detected}
+	\end{figure}
+	\item The include tag is supposed to have the syntax as \textbf{include < .. >}. But if one does not close the brackets then that did not give any errors before.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\linewidth]{images/output/grammer_include_old.png}
+		\caption{Include tag incomplete syntact undetected}
+	\end{figure}
+	After fixing the grammer for this we can see that now there is an error message regarding this mistake:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\linewidth]{images/output/grammer_include_new.png}
+		\caption{Include tag incomplete syntax detected}
+	\end{figure}
+	\item The string literals are written inside double quotes. Earliear these double quotes if placed alone would go undetected. They are supposed to be in pairs.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\linewidth]{images/output/grammer_quote_old.png}
+		\caption{Strings in double quotes incomplete syntax undetected}
+	\end{figure}
+	After fixing the grammer for this we can see that now there is an error message regarding this mistake:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\linewidth]{images/output/grammer_quote_new.png}
+		\caption{Strings in double quotes incomplete syntax detected}
+	\end{figure}
+	\item The multiline comments in OpenSCAD follows the usual syntax. But when a comment is started and not finished, then the system was not able to detect this error.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\linewidth]{images/output/now_right.png}
+		\caption{Multiline comment incomplete syntax undetected}
+	\end{figure}
+	After fixing the grammer for this we can see that now there is an error message regarding this mistake:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\linewidth]{images/output/now_right.png}
+		\caption{Multiline comment incomplete syntax detected}
+	\end{figure}
+\end{itemize}

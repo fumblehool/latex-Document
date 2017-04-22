@@ -1,0 +1,15 @@
+\section{Problem Formulation}
+The following considerations lead to the formation of issues that then transpired into this project:
+\begin{itemize}
+	\item The rendering process was a bottleneck in performance.
+	\item The time it took to render big models really made it cumbersome for the modelers to make small changes and watch their effect as part of their regular testing of the model.
+	\item The software was not fully utilizing the cpu cores of the system on which it is run hence the efficeincy as well as time consumption was compromised.
+	\item Since the rendering process involves traverssing, processing and then actuating on screen; nodes of an already formed tree; parallel processing the nodes was a clear idea moving forward.
+	\item Having separate threads processing separate nodes in the tree was not a straightforward choice because the underlying library as well as the code structure of the software was not thread safe to satisfaction. By this it means that while processing various nodes, the methods used access the same variables in a non safe manner that can be used only in sequential access but will not work right in concurrent access. The same issue is with the CGAL library used in rendering. It also is not ideal for parallel processing.
+	\item When the rendering command is given unintentionally then there must be a fault safe method of revoking this command without wipping out the already processed nodes from cache.
+	\item The progress bar is not generalised for all kind of structural primitives. This restricts its potency.
+	\item When nodes are traverssed in parallel, there is no control over the order in which they are traverssed. As such the progress report code in its current form will not be able to report the progress correctly.
+	\item In assigning some nodes as pseudo root for certain renders, the user is not given any warning in case of there being multiple such tags in the description of the model.
+	\item There are some oversights in the modelling language that allow for some incomplete syntax to go undetected. This needs to be fixed by improving the grammer.
+\end{itemize}
+All of the above things lead to the formation of issues that are attempted to be solved in this project.

@@ -2,3 +2,20 @@ use <
 include <
 "
 \*
+
+
+
+
+wiki for visitor and everything else
+
+
+problem formulation
+
+design pattern becomes detail design. Add functor, and grammer of bison
+
+
+for functor the following site was used http://cs.stmarys.ca/~porter/csc/ref/stl/function_objects.html`
+
+
+for lambda benefits: https://visualstudiomagazine.com/articles/2012/06/18/cplus-lambda-expressions.aspx
+for lambda content: https://msdn.microsoft.com/en-us/library/dd293608.aspx

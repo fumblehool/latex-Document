@@ -1,4 +1,4 @@
-\section{Design Patterns}
+\section{Detail Design}
 \subsection{Visitor Pattern}
 In object-oriented programming and software engineering, the visitor design pattern is a way of separating an algorithm from an object structure on which it operates. A practical result of this separation is the ability to add new operations to extant object structures without modifying the structures. It is one way to follow the open/closed principle.\\
 In essence, the visitor allows adding new virtual functions to a family of classes, without modifying the classes. Instead, a visitor class is created that implements all of the appropriate specializations of the virtual function. The visitor takes the instance reference as input, and implements the goal through double dispatch.
@@ -39,3 +39,27 @@ The visitor pattern requires a programming language that supports single dispatc
 This effectively implements double dispatch. For languages which object systems support multiple dispatch, not only single dispatch, such as Common Lisp, implementing the visitor pattern in them is trivial.\\
 In this way, one algorithm can be written to traverse a graph of elements, and many different kinds of operations can be performed during that traversal by supplying different kinds of visitors to interact with the elements based on the dynamic types of both the elements and the visitors.\\
 Some languages (e.g., C\# via the Dynamic Language Runtime (DLR)) support multiple dispatch, which greatly simplifies implementing the Visitor pattern (a.k.a. Dynamic Visitor) by allowing use of simple function overloading to cover all the cases being visited. A dynamic visitor, provided it operates on public data only, conforms to the open/closed principle (since it does not modify extant structures) and to the single responsibility principle (since it implements the Visitor pattern in a separate component).
+\subsection{Lambda Expressions}
+\subsubsection{Introduction to Lambdas}
+In C++11, a lambda expression—often called a lambda—is a convenient way of defining an anonymous function object right at the location where it is invoked or passed as an argument to a function. Typically lambdas are used to encapsulate a few lines of code that are passed to algorithms or asynchronous methods. A lambda expression contains the following components:
+\begin{enumerate}
+	\item capture clause (Also known as the lambda-introducer in the C++ specification.)
+	\item parameter list Optional. (Also known as the lambda declarator)
+	\item mutable specification Optional.
+	\item exception-specification Optional.
+	\item trailing-return-type Optional.
+	\item lambda body)
+\end{enumerate}
+This is shown in the following picture followed by an example:
+\begin{figure}[H]
+	\centering
+	\includegraphics{images/lambda_components.png}
+	\caption{Lambda expression components}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics{images/lambda_example.png}
+	\caption{Lambda expression example}
+\end{figure}
+\subsubsection{Benefits of using Lambdas}
+Lambdas are lightweight, nameless functions that can be defined just-in-place where they are used. Lambdas didn't come to C++ as a specific-purpose feature (i.e., functional programming): the existing STL components, like the for\_each algorithm, and its new ones like <thread> or <future>, allow you to specify function arguments as lambdas beside C-like functions and functors. Unless you need a function available in more than one place, you'll feel more comfortable using lambdas as arguments of STL components.

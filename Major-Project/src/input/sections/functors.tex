@@ -1,0 +1,17 @@
+\section{Functors}
+Function objects (also called functors) are an STL feature that you may not employ immediately when you start using the STL. They are, however, very useful in many situations and an STL facility with which you should become acquainted. They give the STL a flexibility that it would not otherwise have, and also contribute to STL efficiency. The most common uses for function objects are for generating data, for testing data, and for applying operations to data.\\
+
+A function object (or functor) is simply any object of a class that provides at least one definition for operator() What this means is that if you then declare an object f of the class in which this operator() is defined you can subsequently use that object f just like you would use an "ordinary" function. For example, you could have an assignment statement like\\
+
+someValue = f(arg1, arg2);\\
+which is the same as\\
+
+someValue = f.operator()(arg1, arg2);\\
+so long as operator() for the given class had been defined to do the following two things:
+\begin{enumerate}
+	\item It must take two parameters (par1 and par2, say, of whatever type(s)), with arg1 and arg2 in the above assignment statement being actual parameters of the corresponding type(s).
+	\item It must return a value of the type of the variable someValue.
+\end{enumerate}
+If you were only going to use a functor as illustrated in the assignment statement example or the sample program given above, you might as well use an ordinary function. In the STL, algorithms often take a parameter which is a function (or functor) telling the algorithm how to perform some part of its task, and functors are generally more versatile and hence more useful for this purpose. In particular, the built-in functors are objects of template classes, and so the same computations performed by a given functor can be applied to different types.
+
+Binary functors (or ordinary binary functions) that return a boolean value are called binary predicates or comparitors or comparison functions. Unary functors (or ordinary unary functions) that return a boolean value are called unary predicates. Either variety of functor that returns a boolean value may be referred to simply as a predicate function.

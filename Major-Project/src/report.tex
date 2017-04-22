@@ -1,4 +1,4 @@
-\documentclass[12pt]{report}
+\documentclass[12pt, includeheadfoot, a4paper]{report}
 \usepackage[print,nopanel]{classes/pdfscreen}
 %\begin{print}
 \usepackage{classes/lipsum}% http://ctan.org/pkg/lipsum
@@ -6,6 +6,7 @@
 %\section{type}
 \usepackage{classes/lastpage}
 \usepackage{classes/macro}
+\usepackage[T1]{fontenc}
 \usepackage{classes/float}
 \usepackage{fancyhdr}
 \usepackage{booktabs}
@@ -20,11 +21,12 @@
 \renewcommand{\subsection}{\FloatBarrier\Oldsubsection}
 \let\Oldsection\section
 \renewcommand{\section}{\FloatBarrier\Oldsection}
-\lhead{\tiny\bfseries Multi-Threaded Geometric Rendering}
-\usepackage[left=2.5cm, right=1.5cm, top=2.5cm, bottom=1.5cm]{geometry}
+\lhead{\bfseries Multi-Threaded Geometric Rendering}
+\rhead{}
+\usepackage[left=3.5cm, right=1.25cm, top=2.5cm, bottom=1.25cm]{geometry}
 \pagestyle{fancy}
 %\end{print}
-\margins{2.5cm}{1.5cm}{1.5cm}{1.5cm}
+\margins{3.5cm}{1.25cm}{2.5cm}{1.25cm}
 \linespread{1.5}
 \begin{screen}
 	\renewcommand{\encodingdefault}{T1}
@@ -49,22 +51,22 @@
 
 	\pagenumbering{Roman}
 	\cfoot{\thepage}
-
+	\addcontentsline{toc}{section}{Abstract}
 	\input{input/abstract.tex}
 	\newpage
 
+	\addcontentsline{toc}{section}{Acknowledgment}
 	\input{input/acknowledgement.tex}
 	\newpage
 
 	\setcounter{secnumdepth}{3}
 	\setcounter{tocdepth}{3}
-	\tableofcontents
-	\newpage
-
+	\addcontentsline{toc}{section}{List of figures}
 	\listoffigures
+
 	\newpage
 
-	\listoftables
+	\tableofcontents
 	\newpage
 
 	\pagenumbering{arabic}
@@ -81,9 +83,6 @@
 	\newpage
 
 	\input{input/Implementation_Testing_and_Maintenance.tex}
-	\newpage
-
-	\input{input/Results_and_Discussions.tex}
 	\newpage
 
 	\input{input/Conclusions_and_Future_Scope.tex}
