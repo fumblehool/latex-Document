@@ -24,37 +24,39 @@
 \BOOKMARK [2][]{subsection.3.2.2}{Lambda Expressions}{section.3.2}% 24
 \BOOKMARK [3][]{subsubsection.3.2.2.1}{Introduction to Lambdas}{subsection.3.2.2}% 25
 \BOOKMARK [3][]{subsubsection.3.2.2.2}{Benefits of using Lambdas}{subsection.3.2.2}% 26
-\BOOKMARK [1][]{section.3.3}{Product Perspective}{chapter.3}% 27
-\BOOKMARK [1][]{section.3.4}{Product Functions}{chapter.3}% 28
-\BOOKMARK [1][]{section.3.5}{User Characteristics}{chapter.3}% 29
-\BOOKMARK [2][]{subsection.3.5.1}{The General User}{section.3.5}% 30
-\BOOKMARK [2][]{subsection.3.5.2}{Designers}{section.3.5}% 31
-\BOOKMARK [2][]{subsection.3.5.3}{Developers}{section.3.5}% 32
-\BOOKMARK [1][]{section.3.6}{Flowchart}{chapter.3}% 33
-\BOOKMARK [1][]{section.3.7}{Dependency Graph}{chapter.3}% 34
-\BOOKMARK [1][]{section.3.8}{Class Diagrams}{chapter.3}% 35
-\BOOKMARK [1][]{section.3.9}{Dependencies}{chapter.3}% 36
-\BOOKMARK [0][]{chapter.4}{Implementation Testing and Maintenance}{}% 37
-\BOOKMARK [1][]{section.4.1}{C++}{chapter.4}% 38
-\BOOKMARK [1][]{section.4.2}{Boost Libraries}{chapter.4}% 39
-\BOOKMARK [1][]{section.4.3}{Qt}{chapter.4}% 40
-\BOOKMARK [2][]{subsection.4.3.1}{Software Architecture}{section.4.3}% 41
-\BOOKMARK [1][]{section.4.4}{Flex}{chapter.4}% 42
-\BOOKMARK [1][]{section.4.5}{Bison}{chapter.4}% 43
-\BOOKMARK [1][]{section.4.6}{Introduction to LaTeX}{chapter.4}% 44
-\BOOKMARK [2][]{subsection.4.6.1}{Typesetting}{section.4.6}% 45
-\BOOKMARK [1][]{section.4.7}{Introduction to Doxygen}{chapter.4}% 46
-\BOOKMARK [2][]{subsection.4.7.1}{Features of Doxygen}{section.4.7}% 47
-\BOOKMARK [1][]{section.4.8}{Introduction to Github}{chapter.4}% 48
-\BOOKMARK [2][]{subsection.4.8.1}{What is Git?}{section.4.8}% 49
-\BOOKMARK [1][]{section.4.9}{JSON}{chapter.4}% 50
-\BOOKMARK [1][]{section.4.10}{Implementation}{chapter.4}% 51
-\BOOKMARK [2][]{subsection.4.10.1}{Multithreading}{section.4.10}% 52
-\BOOKMARK [2][]{subsection.4.10.2}{Halting Mechanism for Render}{section.4.10}% 53
-\BOOKMARK [2][]{subsection.4.10.3}{Finding Root Tag Nodes}{section.4.10}% 54
-\BOOKMARK [2][]{subsection.4.10.4}{Fixing Grammer Issues}{section.4.10}% 55
-\BOOKMARK [1][]{section.4.11}{Testing}{chapter.4}% 56
-\BOOKMARK [0][]{chapter.5}{Conclusions and Future Scope}{}% 57
-\BOOKMARK [1][]{section.5.1}{Conclusions}{chapter.5}% 58
-\BOOKMARK [1][]{section.5.2}{Future Scope}{chapter.5}% 59
-\BOOKMARK [0][]{section.5.2}{BIBLIOGRAPHY}{}% 60
+\BOOKMARK [2][]{subsection.3.2.3}{Functors}{section.3.2}% 27
+\BOOKMARK [1][]{section.3.3}{Product Perspective}{chapter.3}% 28
+\BOOKMARK [1][]{section.3.4}{Product Functions}{chapter.3}% 29
+\BOOKMARK [1][]{section.3.5}{User Characteristics}{chapter.3}% 30
+\BOOKMARK [2][]{subsection.3.5.1}{The General User}{section.3.5}% 31
+\BOOKMARK [2][]{subsection.3.5.2}{Designers}{section.3.5}% 32
+\BOOKMARK [2][]{subsection.3.5.3}{Developers}{section.3.5}% 33
+\BOOKMARK [1][]{section.3.6}{Flowchart}{chapter.3}% 34
+\BOOKMARK [1][]{section.3.7}{Dependency Graph}{chapter.3}% 35
+\BOOKMARK [1][]{section.3.8}{Class Diagrams}{chapter.3}% 36
+\BOOKMARK [1][]{section.3.9}{Dependencies}{chapter.3}% 37
+\BOOKMARK [0][]{chapter.4}{Implementation Testing and Maintenance}{}% 38
+\BOOKMARK [1][]{section.4.1}{C++}{chapter.4}% 39
+\BOOKMARK [1][]{section.4.2}{Boost Libraries}{chapter.4}% 40
+\BOOKMARK [1][]{section.4.3}{Qt}{chapter.4}% 41
+\BOOKMARK [2][]{subsection.4.3.1}{Software Architecture}{section.4.3}% 42
+\BOOKMARK [1][]{section.4.4}{Flex}{chapter.4}% 43
+\BOOKMARK [1][]{section.4.5}{Bison}{chapter.4}% 44
+\BOOKMARK [1][]{section.4.6}{Introduction to LaTeX}{chapter.4}% 45
+\BOOKMARK [2][]{subsection.4.6.1}{Typesetting}{section.4.6}% 46
+\BOOKMARK [1][]{section.4.7}{Introduction to Doxygen}{chapter.4}% 47
+\BOOKMARK [2][]{subsection.4.7.1}{Features of Doxygen}{section.4.7}% 48
+\BOOKMARK [1][]{section.4.8}{Introduction to Github}{chapter.4}% 49
+\BOOKMARK [2][]{subsection.4.8.1}{What is Git?}{section.4.8}% 50
+\BOOKMARK [1][]{section.4.9}{JSON}{chapter.4}% 51
+\BOOKMARK [1][]{section.4.10}{Implementation}{chapter.4}% 52
+\BOOKMARK [2][]{subsection.4.10.1}{Multithreading}{section.4.10}% 53
+\BOOKMARK [2][]{subsection.4.10.2}{Halting Mechanism for Render}{section.4.10}% 54
+\BOOKMARK [2][]{subsection.4.10.3}{Finding Root Tag Nodes}{section.4.10}% 55
+\BOOKMARK [2][]{subsection.4.10.4}{Fixing Grammer Issues}{section.4.10}% 56
+\BOOKMARK [2][]{subsection.4.10.5}{Customizer Preset Name with a Dot}{section.4.10}% 57
+\BOOKMARK [1][]{section.4.11}{Testing}{chapter.4}% 58
+\BOOKMARK [0][]{chapter.5}{Conclusions and Future Scope}{}% 59
+\BOOKMARK [1][]{section.5.1}{Conclusions}{chapter.5}% 60
+\BOOKMARK [1][]{section.5.2}{Future Scope}{chapter.5}% 61
+\BOOKMARK [0][]{section.5.2}{BIBLIOGRAPHY}{}% 62

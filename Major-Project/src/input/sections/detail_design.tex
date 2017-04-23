@@ -5,7 +5,7 @@ In essence, the visitor allows adding new virtual functions to a family of class
 \subsubsection{Definition}
 The Gang of Four defines the Visitor as:\\
 Represent an operation to be performed on elements of an object structure. Visitor lets you define a new operation without changing the classes of the elements on which it operates.\\
-The nature of the Visitor makes it an ideal pattern to plug into public APIs thus allowing its clients to perform operations on a class using a “visiting” class without having to modify the source.
+The nature of the Visitor makes it an ideal pattern to plug into public APIs thus allowing its clients to perform operations on a class using a \textbf{visiting} class without having to modify the source. See figure \ref{fig:visitordesignpattern}
 \begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{images/Visitor_design_pattern}
@@ -43,7 +43,7 @@ In this way, one algorithm can be written to traverse a graph of elements, and m
 Some languages (e.g., C\# via the Dynamic Language Runtime (DLR)) support multiple dispatch, which greatly simplifies implementing the Visitor pattern (a.k.a. Dynamic Visitor) by allowing use of simple function overloading to cover all the cases being visited. A dynamic visitor, provided it operates on public data only, conforms to the open/closed principle (since it does not modify extant structures) and to the single responsibility principle (since it implements the Visitor pattern in a separate component).
 \subsection{Lambda Expressions}
 \subsubsection{Introduction to Lambdas}
-In C++11, a lambda expression—often called a lambda—is a convenient way of defining an anonymous function object right at the location where it is invoked or passed as an argument to a function. Typically lambdas are used to encapsulate a few lines of code that are passed to algorithms or asynchronous methods. A lambda expression contains the following components:
+In C++11, a lambda expression often called a lambda is a convenient way of defining an anonymous function object right at the location where it is invoked or passed as an argument to a function. Typically lambdas are used to encapsulate a few lines of code that are passed to algorithms or asynchronous methods. A lambda expression contains the following components:
 \begin{enumerate}
 	\item capture clause (Also known as the lambda-introducer in the C++ specification.)
 	\item parameter list Optional. (Also known as the lambda declarator)
@@ -52,16 +52,19 @@ In C++11, a lambda expression—often called a lambda—is a convenient way of d
 	\item trailing-return-type Optional.
 	\item lambda body)
 \end{enumerate}
-This is shown in the following picture followed by an example:
+This is shown in the picture \ref{fig:lambda_components} followed by an example figure \ref{fig:lambda_example}:
 \begin{figure}[H]
 	\centering
 	\includegraphics{images/lambda_components.png}
 	\caption{Lambda expression components}
+	\label{fig:lambda_components}
 \end{figure}
 \begin{figure}[H]
 	\centering
 	\includegraphics{images/lambda_example.png}
 	\caption{Lambda expression example}
+	\label{fig:lambda_example}
 \end{figure}
 \subsubsection{Benefits of using Lambdas}
 Lambdas are lightweight, nameless functions that can be defined just-in-place where they are used. Lambdas didn't come to C++ as a specific-purpose feature (i.e., functional programming): the existing STL components, like the for\_each algorithm, and its new ones like <thread> or <future>, allow you to specify function arguments as lambdas beside C-like functions and functors. Unless you need a function available in more than one place, you'll feel more comfortable using lambdas as arguments of STL components.
+\input{input/sections/functors.tex}
