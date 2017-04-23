@@ -20,7 +20,7 @@ A naive way to solve this would be to maintain separate functions for each file 
 Instead, the Visitor pattern can be applied. It encodes a logical operation on the whole hierarchy into one class containing one method per type. In the CAD example, each save function would be implemented as a separate Visitor subclass. This would remove all duplication of type checks and traversal steps. It would also make the compiler complain if a shape is omitted.\\
 Another motive is to reuse iteration code. For example, iterating over a directory structure could be implemented with a visitor pattern. This would allow creating file searches, file backups, directory removal, etc., by implementing a visitor for each function while reusing the iteration code.
 \subsubsection{Details}
-The visitor pattern requires a programming language that supports single dispatch. Under this condition, consider two objects, each of some class type; one is termed the element, and the other is visitor. An element has an accept method that can take the visitor as an argument. The accept method calls a visit method of the visitor; the element passes itself as an argument to the visit method. Thus:\\
+The visitor pattern requires a programming language that supports single dispatch. Under this condition, consider two objects, each of some class type; one is termed the element, and the other is visitor. An element has an accept method that can take the visitor as an argument. The accept method calls a visit method of the visitor; the element passes itself as an argument to the visit method. Thus:
 \begin{itemize}
 	\item When the accept method is called in the program, its implementation is chosen based on both:
 	\begin{itemize}
